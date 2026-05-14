@@ -1,0 +1,1402 @@
+[
+  {
+    "id": "food-001",
+    "category": "food",
+    "content": "오늘의 식욕은 내일의 가벼움이 됩니다."
+  },
+  {
+    "id": "food-002",
+    "category": "food",
+    "content": "참은 한 입이 미래의 자신을 응원하는 마음이에요."
+  },
+  {
+    "id": "food-003",
+    "category": "food",
+    "content": "야식의 유혹을 이긴 당신, 오늘 가장 강한 사람이에요."
+  },
+  {
+    "id": "food-004",
+    "category": "food",
+    "content": "배고픔은 지나가지만 뿌듯함은 남아요."
+  },
+  {
+    "id": "food-005",
+    "category": "food",
+    "content": "배달앱을 닫은 그 손가락이 멋졌어요."
+  },
+  {
+    "id": "food-006",
+    "category": "food",
+    "content": "잠깐의 허기를 견딘 자리에 자존감이 자라요."
+  },
+  {
+    "id": "food-007",
+    "category": "food",
+    "content": "오늘 안 먹은 한 끼가 내일의 컨디션을 만들어줘요."
+  },
+  {
+    "id": "food-008",
+    "category": "food",
+    "content": "참는 게 굶는 게 아니에요. 선택한 거예요."
+  },
+  {
+    "id": "food-009",
+    "category": "food",
+    "content": "혀의 만족보다 마음의 만족을 골랐네요."
+  },
+  {
+    "id": "food-010",
+    "category": "food",
+    "content": "지금 배 안 고픈 거 알아요. 잘 참았어요."
+  },
+  {
+    "id": "food-011",
+    "category": "food",
+    "content": "12시 넘은 음식은 위장도 싫어해요. 잘했어요."
+  },
+  {
+    "id": "food-012",
+    "category": "food",
+    "content": "한 끼를 미룬 게 아니라, 한 끼를 아낀 거예요."
+  },
+  {
+    "id": "food-013",
+    "category": "food",
+    "content": "냉장고 앞에서 돌아선 당신, 오늘의 영웅."
+  },
+  {
+    "id": "food-014",
+    "category": "food",
+    "content": "치킨은 내일도 있어요. 푹 자고 만나요."
+  },
+  {
+    "id": "food-015",
+    "category": "food",
+    "content": "배달 알람이 울려도 끄는 손이 어른스러워요."
+  },
+  {
+    "id": "food-016",
+    "category": "food",
+    "content": "야식은 추억이 되고, 참음은 자산이 돼요."
+  },
+  {
+    "id": "food-017",
+    "category": "food",
+    "content": "오늘 위장이 고마워하고 있을 거예요."
+  },
+  {
+    "id": "food-018",
+    "category": "food",
+    "content": "유혹은 5분, 후회는 5시간. 5분을 이겼네요."
+  },
+  {
+    "id": "food-019",
+    "category": "food",
+    "content": "냉장고 문을 닫은 그 결단, 박수예요."
+  },
+  {
+    "id": "food-020",
+    "category": "food",
+    "content": "배고픔보다 잠을 택한 당신, 현명해요."
+  },
+  {
+    "id": "food-021",
+    "category": "food",
+    "content": "한 입의 유혹을 못 이긴 게 아니라, 안 이긴 거예요."
+  },
+  {
+    "id": "food-022",
+    "category": "food",
+    "content": "오늘은 입보다 마음을 채웠네요."
+  },
+  {
+    "id": "food-023",
+    "category": "food",
+    "content": "참은 야식만큼 가벼운 아침이 기다려요."
+  },
+  {
+    "id": "food-024",
+    "category": "food",
+    "content": "다이어트가 아니어도 잘한 일이에요."
+  },
+  {
+    "id": "food-025",
+    "category": "food",
+    "content": "내일의 거울이 미소 지을 일을 했어요."
+  },
+  {
+    "id": "food-026",
+    "category": "food",
+    "content": "맛있는 건 아침에 먹기로 미뤄둔 거예요."
+  },
+  {
+    "id": "food-027",
+    "category": "food",
+    "content": "위장이 쉬는 밤, 잘 만들어줬어요."
+  },
+  {
+    "id": "food-028",
+    "category": "food",
+    "content": "오늘의 절제가 내일의 컨디션이에요."
+  },
+  {
+    "id": "food-029",
+    "category": "food",
+    "content": "배달앱 별점 하나, 내 인내심 별 다섯."
+  },
+  {
+    "id": "food-030",
+    "category": "food",
+    "content": "안 시킨 야식만큼 통장도 웃어요."
+  },
+  {
+    "id": "sweets-001",
+    "category": "sweets",
+    "content": "달콤함은 입이 아닌 마음에서도 올 수 있어요."
+  },
+  {
+    "id": "sweets-002",
+    "category": "sweets",
+    "content": "한 조각을 참은 당신, 이미 충분히 달콤한 사람이에요."
+  },
+  {
+    "id": "sweets-003",
+    "category": "sweets",
+    "content": "당 충전 안 해도 오늘 잘 굴러갔어요."
+  },
+  {
+    "id": "sweets-004",
+    "category": "sweets",
+    "content": "케이크는 기다려줘요. 내일 기쁨으로 만나요."
+  },
+  {
+    "id": "sweets-005",
+    "category": "sweets",
+    "content": "초콜릿 한 조각의 유혹을 이긴 단단함."
+  },
+  {
+    "id": "sweets-006",
+    "category": "sweets",
+    "content": "지금 안 먹은 게 아니라, 더 맛있는 날을 위해 미뤄둔 거예요."
+  },
+  {
+    "id": "sweets-007",
+    "category": "sweets",
+    "content": "당분 없이도 충분히 달콤한 하루였어요."
+  },
+  {
+    "id": "sweets-008",
+    "category": "sweets",
+    "content": "디저트 대신 자존감을 채웠네요."
+  },
+  {
+    "id": "sweets-009",
+    "category": "sweets",
+    "content": "달콤한 건 내일도 거기 있어요. 오늘은 잘 참았어요."
+  },
+  {
+    "id": "sweets-010",
+    "category": "sweets",
+    "content": "당 떨어졌다고 느낀 건 마음일 뿐이에요. 잘 견뎠어요."
+  },
+  {
+    "id": "sweets-011",
+    "category": "sweets",
+    "content": "한 입만 했으면 한 박스였을 거 알죠? 잘 멈췄어요."
+  },
+  {
+    "id": "sweets-012",
+    "category": "sweets",
+    "content": "디저트보다 단단한 당신을 봤어요."
+  },
+  {
+    "id": "sweets-013",
+    "category": "sweets",
+    "content": "달지 않아도 오늘의 결말은 예쁘네요."
+  },
+  {
+    "id": "sweets-014",
+    "category": "sweets",
+    "content": "쿠키 한 입을 참아낸 당신이 오늘의 챔피언."
+  },
+  {
+    "id": "sweets-015",
+    "category": "sweets",
+    "content": "혀끝의 달콤함보다 마음의 평온을 골랐네요."
+  },
+  {
+    "id": "sweets-016",
+    "category": "sweets",
+    "content": "참은 단 거만큼 입꼬리가 단단해져요."
+  },
+  {
+    "id": "sweets-017",
+    "category": "sweets",
+    "content": "당분 안 들어와도 잘 돌아가는 하루."
+  },
+  {
+    "id": "sweets-018",
+    "category": "sweets",
+    "content": "단 거 말고 단단한 시간을 보냈네요."
+  },
+  {
+    "id": "sweets-019",
+    "category": "sweets",
+    "content": "초콜릿 칸막이가 오늘은 안전해요."
+  },
+  {
+    "id": "sweets-020",
+    "category": "sweets",
+    "content": "한 조각의 유혹은 한 봉지의 후회. 잘 막았어요."
+  },
+  {
+    "id": "sweets-021",
+    "category": "sweets",
+    "content": "달콤함은 미루면 더 진해져요."
+  },
+  {
+    "id": "sweets-022",
+    "category": "sweets",
+    "content": "오늘 디저트는 자기절제로 대체했네요."
+  },
+  {
+    "id": "sweets-023",
+    "category": "sweets",
+    "content": "당 충전 대신 자기존중 충전."
+  },
+  {
+    "id": "sweets-024",
+    "category": "sweets",
+    "content": "케이크 사진은 SNS에 두고, 평온은 내가 가져요."
+  },
+  {
+    "id": "sweets-025",
+    "category": "sweets",
+    "content": "단 게 없어도 충분히 달았던 하루."
+  },
+  {
+    "id": "sweets-026",
+    "category": "sweets",
+    "content": "과자 봉지를 안 뜯은 손, 그 손이 오늘 멋졌어요."
+  },
+  {
+    "id": "sweets-027",
+    "category": "sweets",
+    "content": "디저트의 자리를 차분함이 채웠네요."
+  },
+  {
+    "id": "sweets-028",
+    "category": "sweets",
+    "content": "혈당이 안정된 만큼 마음도 안정돼요."
+  },
+  {
+    "id": "sweets-029",
+    "category": "sweets",
+    "content": "달지 않은 하루도 충분히 사랑스러워요."
+  },
+  {
+    "id": "sweets-030",
+    "category": "sweets",
+    "content": "당이 아닌 평화로 보상받은 날."
+  },
+  {
+    "id": "shopping-001",
+    "category": "shopping",
+    "content": "장바구니에서 비운 만큼 통장이 채워져요."
+  },
+  {
+    "id": "shopping-002",
+    "category": "shopping",
+    "content": "안 산 물건은 내일도 거기 있어요. 잘 참았어요."
+  },
+  {
+    "id": "shopping-003",
+    "category": "shopping",
+    "content": "세일은 또 와요. 지갑은 두 번 열리지 않아요."
+  },
+  {
+    "id": "shopping-004",
+    "category": "shopping",
+    "content": "안 산 게 아니라, 진짜 필요한지 한 번 더 본 거예요."
+  },
+  {
+    "id": "shopping-005",
+    "category": "shopping",
+    "content": "결제창을 닫은 손가락에 박수."
+  },
+  {
+    "id": "shopping-006",
+    "category": "shopping",
+    "content": "장바구니 정리도 일종의 명상이에요."
+  },
+  {
+    "id": "shopping-007",
+    "category": "shopping",
+    "content": "갖고 싶은 것보다 가진 것에 머물기로 했네요."
+  },
+  {
+    "id": "shopping-008",
+    "category": "shopping",
+    "content": "할인율 90%도 못 산 건 0원이에요. 영리해요."
+  },
+  {
+    "id": "shopping-009",
+    "category": "shopping",
+    "content": "마음이 채워졌으면 카트는 비워도 돼요."
+  },
+  {
+    "id": "shopping-010",
+    "category": "shopping",
+    "content": "오늘 안 산 물건이 내일의 자유예요."
+  },
+  {
+    "id": "shopping-011",
+    "category": "shopping",
+    "content": "충동은 5분, 청구서는 한 달. 5분을 이겼어요."
+  },
+  {
+    "id": "shopping-012",
+    "category": "shopping",
+    "content": "필요와 욕망을 구분한 당신, 어른이에요."
+  },
+  {
+    "id": "shopping-013",
+    "category": "shopping",
+    "content": "지갑 닫는 소리가 가장 큰 응원이에요."
+  },
+  {
+    "id": "shopping-014",
+    "category": "shopping",
+    "content": "쇼핑 대신 멈춤을 선택한 멋진 결정."
+  },
+  {
+    "id": "shopping-015",
+    "category": "shopping",
+    "content": "결제 직전에 멈춘 당신, 그게 진짜 절약이에요."
+  },
+  {
+    "id": "shopping-016",
+    "category": "shopping",
+    "content": "안 사도 충분히 풍요로운 하루였어요."
+  },
+  {
+    "id": "shopping-017",
+    "category": "shopping",
+    "content": "장바구니에서 빠져나온 평화가 보여요."
+  },
+  {
+    "id": "shopping-018",
+    "category": "shopping",
+    "content": "세일 알림보다 통장 잔고가 더 달콤해요."
+  },
+  {
+    "id": "shopping-019",
+    "category": "shopping",
+    "content": "물건 대신 시간을 산 거예요."
+  },
+  {
+    "id": "shopping-020",
+    "category": "shopping",
+    "content": "쇼핑 충동은 파도예요. 잘 흘려보냈네요."
+  },
+  {
+    "id": "shopping-021",
+    "category": "shopping",
+    "content": "한정판은 또 나와요. 내 통장은 한정이에요."
+  },
+  {
+    "id": "shopping-022",
+    "category": "shopping",
+    "content": "구매 대신 자기 통제력을 얻었네요."
+  },
+  {
+    "id": "shopping-023",
+    "category": "shopping",
+    "content": "지름신을 돌려보낸 단단함이 멋져요."
+  },
+  {
+    "id": "shopping-024",
+    "category": "shopping",
+    "content": "할인의 목소리보다 자기 목소리를 들었네요."
+  },
+  {
+    "id": "shopping-025",
+    "category": "shopping",
+    "content": "안 산 만큼 깔끔한 방, 깔끔한 마음."
+  },
+  {
+    "id": "shopping-026",
+    "category": "shopping",
+    "content": "쇼핑몰 탭을 닫은 그 동작이 오늘의 승리."
+  },
+  {
+    "id": "shopping-027",
+    "category": "shopping",
+    "content": "필요 없는 걸 안 산 게 진짜 이득이에요."
+  },
+  {
+    "id": "shopping-028",
+    "category": "shopping",
+    "content": "택배 안 와도 충분히 행복한 하루."
+  },
+  {
+    "id": "shopping-029",
+    "category": "shopping",
+    "content": "지갑이 안 운 만큼 마음이 가벼워요."
+  },
+  {
+    "id": "shopping-030",
+    "category": "shopping",
+    "content": "장바구니 비운 자리에 여유가 들어와요."
+  },
+  {
+    "id": "escape-001",
+    "category": "escape",
+    "content": "도망치지 않은 그 자리에 당신의 단단함이 있어요."
+  },
+  {
+    "id": "escape-002",
+    "category": "escape",
+    "content": "튀고 싶었던 마음, 알아요. 그래도 머물러줘서 고마워요."
+  },
+  {
+    "id": "escape-003",
+    "category": "escape",
+    "content": "버틴 자리에 내일이 와요."
+  },
+  {
+    "id": "escape-004",
+    "category": "escape",
+    "content": "한 발짝 도망 대신 한 호흡 깊게 쉬었네요."
+  },
+  {
+    "id": "escape-005",
+    "category": "escape",
+    "content": "회피하지 않은 오늘이, 가장 어른스러워요."
+  },
+  {
+    "id": "escape-006",
+    "category": "escape",
+    "content": "자리를 지킨 당신이 오늘 가장 용감한 사람이에요."
+  },
+  {
+    "id": "escape-007",
+    "category": "escape",
+    "content": "도망의 유혹을 견딘 만큼 단단해져요."
+  },
+  {
+    "id": "escape-008",
+    "category": "escape",
+    "content": "달아나고 싶은 마음 없는 사람은 없어요. 머무는 사람이 강한 거예요."
+  },
+  {
+    "id": "escape-009",
+    "category": "escape",
+    "content": "튀지 않은 그 발걸음이 단단한 미래를 만들어요."
+  },
+  {
+    "id": "escape-010",
+    "category": "escape",
+    "content": "마주한 만큼 두려움이 작아져요."
+  },
+  {
+    "id": "escape-011",
+    "category": "escape",
+    "content": "도망친 곳에 낙원은 없어요. 머문 자리에 평화가 와요."
+  },
+  {
+    "id": "escape-012",
+    "category": "escape",
+    "content": "도망 대신 한 박자 쉼을 골랐네요."
+  },
+  {
+    "id": "escape-013",
+    "category": "escape",
+    "content": "버틴 하루는 사라지지 않아요. 쌓여요."
+  },
+  {
+    "id": "escape-014",
+    "category": "escape",
+    "content": "회피했으면 오늘 잠 못 잤을 거예요. 잘 마주했어요."
+  },
+  {
+    "id": "escape-015",
+    "category": "escape",
+    "content": "물러서지 않은 당신, 진짜 멋져요."
+  },
+  {
+    "id": "escape-016",
+    "category": "escape",
+    "content": "도망의 길이 짧아 보여도 결국 멀어요. 잘 골랐어요."
+  },
+  {
+    "id": "escape-017",
+    "category": "escape",
+    "content": "그 자리에 있어준 것만으로 충분해요."
+  },
+  {
+    "id": "escape-018",
+    "category": "escape",
+    "content": "마주한 마음이 가장 강한 마음이에요."
+  },
+  {
+    "id": "escape-019",
+    "category": "escape",
+    "content": "한 번 더 견뎌낸 당신을, 내일의 당신이 고마워할 거예요."
+  },
+  {
+    "id": "escape-020",
+    "category": "escape",
+    "content": "튀지 않고 버틴 시간이 단단함의 재료예요."
+  },
+  {
+    "id": "escape-021",
+    "category": "escape",
+    "content": "도망의 충동을 견딘 자리에 진짜 평화가 와요."
+  },
+  {
+    "id": "escape-022",
+    "category": "escape",
+    "content": "지금 머문 게 비겁이 아니에요. 용기예요."
+  },
+  {
+    "id": "escape-023",
+    "category": "escape",
+    "content": "회피의 끝은 결국 다시 마주봄이에요. 한 번에 잘했어요."
+  },
+  {
+    "id": "escape-024",
+    "category": "escape",
+    "content": "도망 안 친 만큼 자기 신뢰가 자라요."
+  },
+  {
+    "id": "escape-025",
+    "category": "escape",
+    "content": "버티는 게 가장 큰 성장이에요."
+  },
+  {
+    "id": "escape-026",
+    "category": "escape",
+    "content": "튀고 싶었던 그 순간, 가장 큰 시험을 통과했어요."
+  },
+  {
+    "id": "escape-027",
+    "category": "escape",
+    "content": "도망의 날개 대신 머무는 뿌리를 골랐네요."
+  },
+  {
+    "id": "escape-028",
+    "category": "escape",
+    "content": "오늘 머문 게 내일의 자유를 만들어요."
+  },
+  {
+    "id": "escape-029",
+    "category": "escape",
+    "content": "도망친 적 있다는 게 부끄러운 게 아니라, 오늘 안 도망친 게 자랑이에요."
+  },
+  {
+    "id": "escape-030",
+    "category": "escape",
+    "content": "버텨낸 그 자리, 그게 당신의 영토예요."
+  },
+  {
+    "id": "tears-001",
+    "category": "tears",
+    "content": "참은 눈물도 결국엔 흘려도 괜찮아요. 오늘은 잘 참았어요."
+  },
+  {
+    "id": "tears-002",
+    "category": "tears",
+    "content": "약하지 않아요. 단지 깊을 뿐이에요."
+  },
+  {
+    "id": "tears-003",
+    "category": "tears",
+    "content": "고개를 들고 견딘 그 순간, 멋졌어요."
+  },
+  {
+    "id": "tears-004",
+    "category": "tears",
+    "content": "삼킨 눈물이 내일의 단단함이 돼요."
+  },
+  {
+    "id": "tears-005",
+    "category": "tears",
+    "content": "안 운 게 아니에요. 미뤄둔 거예요. 그것도 용기예요."
+  },
+  {
+    "id": "tears-006",
+    "category": "tears",
+    "content": "눈물이 차올랐다가 다시 가라앉은 그 마음, 잘 견뎠어요."
+  },
+  {
+    "id": "tears-007",
+    "category": "tears",
+    "content": "지금 안 울어도 돼요. 나중에 충분히 울어도 괜찮아요."
+  },
+  {
+    "id": "tears-008",
+    "category": "tears",
+    "content": "참은 눈물은 슬픔이 아니라 단단함이에요."
+  },
+  {
+    "id": "tears-009",
+    "category": "tears",
+    "content": "안 흘린 눈물 한 방울이 어른스러움 한 방울이에요."
+  },
+  {
+    "id": "tears-010",
+    "category": "tears",
+    "content": "고개 들고 버틴 당신, 충분히 강해요."
+  },
+  {
+    "id": "tears-011",
+    "category": "tears",
+    "content": "눈가에 차오른 그 마음, 알아요. 오늘은 잘 참았어요."
+  },
+  {
+    "id": "tears-012",
+    "category": "tears",
+    "content": "혼자일 때 울어도 돼요. 지금은 잘 견뎠어요."
+  },
+  {
+    "id": "tears-013",
+    "category": "tears",
+    "content": "참은 눈물이 약점이 아니에요. 보호막이에요."
+  },
+  {
+    "id": "tears-014",
+    "category": "tears",
+    "content": "울지 않은 게 무감각이 아니에요. 절제예요."
+  },
+  {
+    "id": "tears-015",
+    "category": "tears",
+    "content": "눈물 대신 고른 침묵이 아름다워요."
+  },
+  {
+    "id": "tears-016",
+    "category": "tears",
+    "content": "삼킨 슬픔만큼 단단해진 마음이 보여요."
+  },
+  {
+    "id": "tears-017",
+    "category": "tears",
+    "content": "오늘 안 운 당신, 정말 어른이에요."
+  },
+  {
+    "id": "tears-018",
+    "category": "tears",
+    "content": "마음이 다친 줄 알아요. 그래도 잘 견뎌줘서 고마워요."
+  },
+  {
+    "id": "tears-019",
+    "category": "tears",
+    "content": "감정을 누른 게 아니라, 잘 다스린 거예요."
+  },
+  {
+    "id": "tears-020",
+    "category": "tears",
+    "content": "눈물을 미룬 만큼 강해진 마음이 있어요."
+  },
+  {
+    "id": "tears-021",
+    "category": "tears",
+    "content": "참은 그 순간이 당신의 가장 어른스러운 모습이었어요."
+  },
+  {
+    "id": "tears-022",
+    "category": "tears",
+    "content": "고개를 든 당신을, 오늘의 당신이 자랑스러워해요."
+  },
+  {
+    "id": "tears-023",
+    "category": "tears",
+    "content": "눈가에 머문 마음, 그 마음을 잘 안아주세요."
+  },
+  {
+    "id": "tears-024",
+    "category": "tears",
+    "content": "안 울어서 다행이 아니라, 잘 견뎌서 다행이에요."
+  },
+  {
+    "id": "tears-025",
+    "category": "tears",
+    "content": "감정의 파도를 잘 지나갔어요."
+  },
+  {
+    "id": "tears-026",
+    "category": "tears",
+    "content": "참은 눈물은 사라지지 않아요. 더 단단한 모양으로 남아요."
+  },
+  {
+    "id": "tears-027",
+    "category": "tears",
+    "content": "오늘의 침착함이 내일의 자랑이에요."
+  },
+  {
+    "id": "tears-028",
+    "category": "tears",
+    "content": "차오른 마음을 잘 다독였네요."
+  },
+  {
+    "id": "tears-029",
+    "category": "tears",
+    "content": "삼킨 눈물이 부끄러운 게 아니에요. 견딘 흔적이에요."
+  },
+  {
+    "id": "tears-030",
+    "category": "tears",
+    "content": "고요한 강해짐이 오늘의 당신이었어요."
+  },
+  {
+    "id": "rude-words-001",
+    "category": "rude-words",
+    "content": "삼킨 한마디가 관계를 지켰어요."
+  },
+  {
+    "id": "rude-words-002",
+    "category": "rude-words",
+    "content": "내뱉지 않은 말이 가장 멋진 말이었어요."
+  },
+  {
+    "id": "rude-words-003",
+    "category": "rude-words",
+    "content": "혀끝까지 올라온 그 말, 잘 누르셨어요."
+  },
+  {
+    "id": "rude-words-004",
+    "category": "rude-words",
+    "content": "험한 말 대신 침묵을 고른 당신, 어른이에요."
+  },
+  {
+    "id": "rude-words-005",
+    "category": "rude-words",
+    "content": "안 한 말은 후회 안 남아요. 잘 참았어요."
+  },
+  {
+    "id": "rude-words-006",
+    "category": "rude-words",
+    "content": "오늘 안 뱉은 그 말, 평생 후회할 뻔했어요."
+  },
+  {
+    "id": "rude-words-007",
+    "category": "rude-words",
+    "content": "분노는 잠깐, 말은 영원. 잘 막아주셨어요."
+  },
+  {
+    "id": "rude-words-008",
+    "category": "rude-words",
+    "content": "혀를 깨문 그 순간, 가장 어른스러운 순간이었어요."
+  },
+  {
+    "id": "rude-words-009",
+    "category": "rude-words",
+    "content": "내일 안 부끄러울 선택을 하셨네요."
+  },
+  {
+    "id": "rude-words-010",
+    "category": "rude-words",
+    "content": "험한 말을 누른 자리에 위엄이 자라요."
+  },
+  {
+    "id": "rude-words-011",
+    "category": "rude-words",
+    "content": "한 마디 참은 게 한 시간 사과를 막았어요."
+  },
+  {
+    "id": "rude-words-012",
+    "category": "rude-words",
+    "content": "삼킨 욕설이 자존심이 됐어요."
+  },
+  {
+    "id": "rude-words-013",
+    "category": "rude-words",
+    "content": "큰소리 대신 큰 침묵을 고르셨네요."
+  },
+  {
+    "id": "rude-words-014",
+    "category": "rude-words",
+    "content": "내뱉지 않은 만큼 관계가 살아요."
+  },
+  {
+    "id": "rude-words-015",
+    "category": "rude-words",
+    "content": "톡 쏘는 말 대신 침착한 한 박자, 멋졌어요."
+  },
+  {
+    "id": "rude-words-016",
+    "category": "rude-words",
+    "content": "오늘 안 한 그 말이 내일의 평화예요."
+  },
+  {
+    "id": "rude-words-017",
+    "category": "rude-words",
+    "content": "분노 위에 이성을 올렸네요."
+  },
+  {
+    "id": "rude-words-018",
+    "category": "rude-words",
+    "content": "험한 말을 참은 사람이 결국 이기는 사람이에요."
+  },
+  {
+    "id": "rude-words-019",
+    "category": "rude-words",
+    "content": "쏘아붙이지 않은 당신, 진짜 강해요."
+  },
+  {
+    "id": "rude-words-020",
+    "category": "rude-words",
+    "content": "혀를 다스린 그 마음, 박수예요."
+  },
+  {
+    "id": "rude-words-021",
+    "category": "rude-words",
+    "content": "내일 만나도 어색하지 않을 선택을 했어요."
+  },
+  {
+    "id": "rude-words-022",
+    "category": "rude-words",
+    "content": "감정의 칼끝을 거두셨네요."
+  },
+  {
+    "id": "rude-words-023",
+    "category": "rude-words",
+    "content": "분노 그대로 말하지 않은 게 진짜 용기예요."
+  },
+  {
+    "id": "rude-words-024",
+    "category": "rude-words",
+    "content": "험한 말은 던진 사람도 베여요. 잘 막았어요."
+  },
+  {
+    "id": "rude-words-025",
+    "category": "rude-words",
+    "content": "혀 끝의 분노를 가슴 안에 담은 그 단단함."
+  },
+  {
+    "id": "rude-words-026",
+    "category": "rude-words",
+    "content": "안 한 말이 한 사람을 살렸을지도 몰라요."
+  },
+  {
+    "id": "rude-words-027",
+    "category": "rude-words",
+    "content": "한마디 못 참는 사람이 많아요. 당신은 참았어요."
+  },
+  {
+    "id": "rude-words-028",
+    "category": "rude-words",
+    "content": "오늘 입 다문 그 침묵이 진짜 멋졌어요."
+  },
+  {
+    "id": "rude-words-029",
+    "category": "rude-words",
+    "content": "삼킨 한마디가 어른의 한마디예요."
+  },
+  {
+    "id": "rude-words-030",
+    "category": "rude-words",
+    "content": "분노의 말 대신 자기존중을 골랐네요."
+  },
+  {
+    "id": "difficult-person-001",
+    "category": "difficult-person",
+    "content": "그 사람의 말이 당신을 정의하지 않아요."
+  },
+  {
+    "id": "difficult-person-002",
+    "category": "difficult-person",
+    "content": "오늘 잘 흘려보냈어요. 그게 가장 좋은 답이었어요."
+  },
+  {
+    "id": "difficult-person-003",
+    "category": "difficult-person",
+    "content": "맞상대 안 한 게 가장 큰 승리예요."
+  },
+  {
+    "id": "difficult-person-004",
+    "category": "difficult-person",
+    "content": "그 사람 때문에 내가 무너지지 않아서 다행이에요."
+  },
+  {
+    "id": "difficult-person-005",
+    "category": "difficult-person",
+    "content": "이해 안 되는 사람을 이해할 필요 없어요. 잘 거리뒀어요."
+  },
+  {
+    "id": "difficult-person-006",
+    "category": "difficult-person",
+    "content": "감정을 안 휘둘린 당신, 정말 단단해요."
+  },
+  {
+    "id": "difficult-person-007",
+    "category": "difficult-person",
+    "content": "맞장구 안 친 그 침묵이 가장 어른스러웠어요."
+  },
+  {
+    "id": "difficult-person-008",
+    "category": "difficult-person",
+    "content": "오늘 잘 견뎠어요. 그 사람 때문이 아니라 당신을 위해."
+  },
+  {
+    "id": "difficult-person-009",
+    "category": "difficult-person",
+    "content": "흙탕물에 발 안 담갔어요. 깨끗한 채로 잘 지나갔어요."
+  },
+  {
+    "id": "difficult-person-010",
+    "category": "difficult-person",
+    "content": "상대의 말에 흔들리지 않은 단단함, 멋졌어요."
+  },
+  {
+    "id": "difficult-person-011",
+    "category": "difficult-person",
+    "content": "그 사람의 무게를 내가 들 필요 없어요. 잘 내려놨네요."
+  },
+  {
+    "id": "difficult-person-012",
+    "category": "difficult-person",
+    "content": "거리를 둔 게 회피가 아니라 자기보호예요."
+  },
+  {
+    "id": "difficult-person-013",
+    "category": "difficult-person",
+    "content": "참은 게 약함이 아니에요. 안 휘말린 게 강함이에요."
+  },
+  {
+    "id": "difficult-person-014",
+    "category": "difficult-person",
+    "content": "내 평화가 그 사람보다 중요해요. 잘 골랐어요."
+  },
+  {
+    "id": "difficult-person-015",
+    "category": "difficult-person",
+    "content": "맞불 안 놓은 게 가장 큰 어른의 선택이에요."
+  },
+  {
+    "id": "difficult-person-016",
+    "category": "difficult-person",
+    "content": "오늘 안 다친 게 다행이에요. 잘 막아냈어요."
+  },
+  {
+    "id": "difficult-person-017",
+    "category": "difficult-person",
+    "content": "감정을 빌려주지 않은 당신, 멋져요."
+  },
+  {
+    "id": "difficult-person-018",
+    "category": "difficult-person",
+    "content": "그 사람의 분노에 내 시간을 내주지 않은 거 잘했어요."
+  },
+  {
+    "id": "difficult-person-019",
+    "category": "difficult-person",
+    "content": "흘려들은 만큼 마음이 가벼워요."
+  },
+  {
+    "id": "difficult-person-020",
+    "category": "difficult-person",
+    "content": "참견 안 한 게 정답이었어요."
+  },
+  {
+    "id": "difficult-person-021",
+    "category": "difficult-person",
+    "content": "그 사람이 변하길 기대 안 한 게 어른의 시작이에요."
+  },
+  {
+    "id": "difficult-person-022",
+    "category": "difficult-person",
+    "content": "내 마음을 지킨 게 가장 큰 일이었어요."
+  },
+  {
+    "id": "difficult-person-023",
+    "category": "difficult-person",
+    "content": "거리는 무관심이 아니에요. 자기존중이에요."
+  },
+  {
+    "id": "difficult-person-024",
+    "category": "difficult-person",
+    "content": "그 사람 때문에 내 하루를 망치지 않아서 다행이에요."
+  },
+  {
+    "id": "difficult-person-025",
+    "category": "difficult-person",
+    "content": "맞붙지 않은 게 진짜 이긴 거예요."
+  },
+  {
+    "id": "difficult-person-026",
+    "category": "difficult-person",
+    "content": "오늘의 침착함이 내일의 자유예요."
+  },
+  {
+    "id": "difficult-person-027",
+    "category": "difficult-person",
+    "content": "그 사람을 이기는 게 아니라, 흔들리지 않는 게 답이에요."
+  },
+  {
+    "id": "difficult-person-028",
+    "category": "difficult-person",
+    "content": "잘 흘려보낸 만큼 가벼워졌어요."
+  },
+  {
+    "id": "difficult-person-029",
+    "category": "difficult-person",
+    "content": "내 에너지를 내 일에 쓰는 게 가장 좋은 복수예요."
+  },
+  {
+    "id": "difficult-person-030",
+    "category": "difficult-person",
+    "content": "그 사람보다 내 마음에 집중한 오늘, 정말 잘했어요."
+  },
+  {
+    "id": "self-pity-001",
+    "category": "self-pity",
+    "content": "더 잘하고 싶었던 마음, 그게 이미 충분해요."
+  },
+  {
+    "id": "self-pity-002",
+    "category": "self-pity",
+    "content": "초라하다고 느낀 그 마음도 당신의 일부예요. 미워하지 마세요."
+  },
+  {
+    "id": "self-pity-003",
+    "category": "self-pity",
+    "content": "오늘 못해도 괜찮아요. 내일이 또 와요."
+  },
+  {
+    "id": "self-pity-004",
+    "category": "self-pity",
+    "content": "잘하지 못한 게 아니에요. 다르게 한 거예요."
+  },
+  {
+    "id": "self-pity-005",
+    "category": "self-pity",
+    "content": "비교는 잠깐, 자기 자신은 평생이에요."
+  },
+  {
+    "id": "self-pity-006",
+    "category": "self-pity",
+    "content": "오늘의 부족함이 내일의 성장 자리예요."
+  },
+  {
+    "id": "self-pity-007",
+    "category": "self-pity",
+    "content": "스스로에게 너무 매섭지 않아도 돼요."
+  },
+  {
+    "id": "self-pity-008",
+    "category": "self-pity",
+    "content": "초라했던 순간을 지나온 사람이 단단해져요."
+  },
+  {
+    "id": "self-pity-009",
+    "category": "self-pity",
+    "content": "더 잘했어야 한다는 마음, 잘 다독여줘요."
+  },
+  {
+    "id": "self-pity-010",
+    "category": "self-pity",
+    "content": "있는 그대로의 오늘도 충분히 의미 있어요."
+  },
+  {
+    "id": "self-pity-011",
+    "category": "self-pity",
+    "content": "비교의 거울에서 잠깐 떨어져도 괜찮아요."
+  },
+  {
+    "id": "self-pity-012",
+    "category": "self-pity",
+    "content": "당신이 부족한 게 아니라, 오늘이 어려웠던 거예요."
+  },
+  {
+    "id": "self-pity-013",
+    "category": "self-pity",
+    "content": "스스로 깎아내리지 않은 게 오늘의 큰 일이었어요."
+  },
+  {
+    "id": "self-pity-014",
+    "category": "self-pity",
+    "content": "초라함도 인간다움의 한 조각이에요."
+  },
+  {
+    "id": "self-pity-015",
+    "category": "self-pity",
+    "content": "넘어진 게 아니에요. 잠깐 멈춘 거예요."
+  },
+  {
+    "id": "self-pity-016",
+    "category": "self-pity",
+    "content": "다른 사람의 빛이 내 빛을 어둡게 하지 않아요."
+  },
+  {
+    "id": "self-pity-017",
+    "category": "self-pity",
+    "content": "오늘의 한숨도, 잘 견딘 흔적이에요."
+  },
+  {
+    "id": "self-pity-018",
+    "category": "self-pity",
+    "content": "잘 안 풀린 하루도 당신의 잘못이 아니에요."
+  },
+  {
+    "id": "self-pity-019",
+    "category": "self-pity",
+    "content": "이 정도면 됐다고, 스스로에게 말해줘요."
+  },
+  {
+    "id": "self-pity-020",
+    "category": "self-pity",
+    "content": "내가 나를 안아주는 게 가장 강한 일이에요."
+  },
+  {
+    "id": "self-pity-021",
+    "category": "self-pity",
+    "content": "기대만큼 못해도 괜찮아요. 기대가 컸을 뿐이에요."
+  },
+  {
+    "id": "self-pity-022",
+    "category": "self-pity",
+    "content": "초라한 나도 사랑받을 자격이 있어요."
+  },
+  {
+    "id": "self-pity-023",
+    "category": "self-pity",
+    "content": "비교 대신 비교하지 않기를 선택했네요."
+  },
+  {
+    "id": "self-pity-024",
+    "category": "self-pity",
+    "content": "더 잘하고 싶었다는 건, 마음을 다했다는 증거예요."
+  },
+  {
+    "id": "self-pity-025",
+    "category": "self-pity",
+    "content": "스스로의 가치를 깎지 않은 게 오늘의 승리예요."
+  },
+  {
+    "id": "self-pity-026",
+    "category": "self-pity",
+    "content": "오늘의 당신도 충분히 괜찮은 사람이에요."
+  },
+  {
+    "id": "self-pity-027",
+    "category": "self-pity",
+    "content": "남들과 같지 않아도, 당신답게 잘 가고 있어요."
+  },
+  {
+    "id": "self-pity-028",
+    "category": "self-pity",
+    "content": "초라함을 지나온 사람만 단단해질 수 있어요."
+  },
+  {
+    "id": "self-pity-029",
+    "category": "self-pity",
+    "content": "자기를 미워하지 않은 그 마음, 가장 멋져요."
+  },
+  {
+    "id": "self-pity-030",
+    "category": "self-pity",
+    "content": "있는 그대로의 나도 좋아요. 잘 버텨줬어요."
+  },
+  {
+    "id": "general-001",
+    "category": "general",
+    "content": "오늘도 잘 참았어요. 그거면 충분해요."
+  },
+  {
+    "id": "general-002",
+    "category": "general",
+    "content": "버틴 하루가 모여 단단한 당신이 됩니다."
+  },
+  {
+    "id": "general-003",
+    "category": "general",
+    "content": "대단한 일을 한 거예요, 정말로."
+  },
+  {
+    "id": "general-004",
+    "category": "general",
+    "content": "참는 건 약함이 아니라 선택이에요. 멋진 선택을 했어요."
+  },
+  {
+    "id": "general-005",
+    "category": "general",
+    "content": "오늘의 당신을, 어제의 당신이 자랑스러워할 거예요."
+  },
+  {
+    "id": "general-006",
+    "category": "general",
+    "content": "충동을 견딘 자리에 자존감이 자라요."
+  },
+  {
+    "id": "general-007",
+    "category": "general",
+    "content": "잠깐의 불편함이 오래 가는 후회를 막았어요."
+  },
+  {
+    "id": "general-008",
+    "category": "general",
+    "content": "수고했어요. 깊게 숨 한 번 쉬어요."
+  },
+  {
+    "id": "general-009",
+    "category": "general",
+    "content": "참아낸 그 한순간이 당신을 지켰어요."
+  },
+  {
+    "id": "general-010",
+    "category": "general",
+    "content": "오늘 견뎌낸 당신, 정말 잘했어요."
+  },
+  {
+    "id": "general-011",
+    "category": "general",
+    "content": "버틴 만큼 강해진 거예요."
+  },
+  {
+    "id": "general-012",
+    "category": "general",
+    "content": "한 박자 쉰 그 선택이 멋졌어요."
+  },
+  {
+    "id": "general-013",
+    "category": "general",
+    "content": "참는다는 건 자기를 사랑한다는 뜻이에요."
+  },
+  {
+    "id": "general-014",
+    "category": "general",
+    "content": "오늘 잘 살아낸 것만으로 충분해요."
+  },
+  {
+    "id": "general-015",
+    "category": "general",
+    "content": "넘어가지 않은 그 자리, 박수받을 일이에요."
+  },
+  {
+    "id": "general-016",
+    "category": "general",
+    "content": "마음을 다스린 만큼 어른이 돼요."
+  },
+  {
+    "id": "general-017",
+    "category": "general",
+    "content": "참은 자리에 평화가 와요."
+  },
+  {
+    "id": "general-018",
+    "category": "general",
+    "content": "오늘도 잘 버텨줘서 고마워요."
+  },
+  {
+    "id": "general-019",
+    "category": "general",
+    "content": "충동 위에 자기 자신을 둔 멋진 결정이었어요."
+  },
+  {
+    "id": "general-020",
+    "category": "general",
+    "content": "잠깐의 견딤이 큰 자유를 만들어요."
+  },
+  {
+    "id": "general-021",
+    "category": "general",
+    "content": "내일의 당신이 오늘의 당신에게 고마워할 거예요."
+  },
+  {
+    "id": "general-022",
+    "category": "general",
+    "content": "참은 만큼 자유로워졌어요."
+  },
+  {
+    "id": "general-023",
+    "category": "general",
+    "content": "이 정도 했으면 충분해요. 정말이에요."
+  },
+  {
+    "id": "general-024",
+    "category": "general",
+    "content": "오늘의 작은 승리가 내일의 큰 자신감이 돼요."
+  },
+  {
+    "id": "general-025",
+    "category": "general",
+    "content": "꾹 참은 그 5초, 인생을 바꾸는 5초였을지도 몰라요."
+  },
+  {
+    "id": "general-026",
+    "category": "general",
+    "content": "잘 견뎠어요. 자기 자신에게 칭찬 한마디 해줘요."
+  },
+  {
+    "id": "general-027",
+    "category": "general",
+    "content": "버틴 게 가장 큰 성취예요."
+  },
+  {
+    "id": "general-028",
+    "category": "general",
+    "content": "오늘의 당신이 가장 멋졌어요."
+  },
+  {
+    "id": "general-029",
+    "category": "general",
+    "content": "참아낸 만큼 마음이 단단해졌어요."
+  },
+  {
+    "id": "general-030",
+    "category": "general",
+    "content": "오늘 살아낸 것만으로도 잘한 거예요."
+  },
+  {
+    "id": "general-031",
+    "category": "general",
+    "content": "스스로를 다스린 시간이 가장 값져요."
+  },
+  {
+    "id": "general-032",
+    "category": "general",
+    "content": "꾹 누른 그 손가락에 단단함이 모였어요."
+  },
+  {
+    "id": "general-033",
+    "category": "general",
+    "content": "흔들렸어도 결국 머물렀잖아요. 멋져요."
+  },
+  {
+    "id": "general-034",
+    "category": "general",
+    "content": "오늘도 자기 자신을 지켜냈네요."
+  },
+  {
+    "id": "general-035",
+    "category": "general",
+    "content": "참은 게 곧 사랑한 거예요."
+  },
+  {
+    "id": "general-036",
+    "category": "general",
+    "content": "한순간의 결단이 단단한 사람을 만들어요."
+  },
+  {
+    "id": "general-037",
+    "category": "general",
+    "content": "오늘은 그냥 잘했다고 인정해줘요."
+  },
+  {
+    "id": "general-038",
+    "category": "general",
+    "content": "마음의 무게를 잘 견뎌냈어요."
+  },
+  {
+    "id": "general-039",
+    "category": "general",
+    "content": "당신은 생각보다 훨씬 단단한 사람이에요."
+  },
+  {
+    "id": "general-040",
+    "category": "general",
+    "content": "오늘의 인내가 내일의 평온이에요."
+  }
+]

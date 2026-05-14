@@ -1,0 +1,13 @@
+{
+  "name": "@chamapp/config",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./tailwind": "./src/tailwind-preset.ts"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.4.0"
+  }
+}
