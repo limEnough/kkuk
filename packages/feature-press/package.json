@@ -1,0 +1,22 @@
+{
+  "name": "@chamapp/feature-press",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.tsx",
+  "types": "./src/index.tsx",
+  "dependencies": {
+    "@chamapp/haptics": "workspace:*",
+    "@chamapp/messages": "workspace:*",
+    "@chamapp/api": "workspace:*",
+    "@chamapp/ui": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.0",
+    "typescript": "^5.4.0"
+  }
+}
