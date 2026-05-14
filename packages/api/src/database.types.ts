@@ -36,6 +36,7 @@ export interface Database {
           selected_hammer_id?: string | null;
           updated_at?: string;
         };
+        Relationships: [];
       };
       items: {
         Row: {
@@ -67,6 +68,7 @@ export interface Database {
           category?: string | null;
           sort_order?: number;
         };
+        Relationships: [];
       };
       press_records: {
         Row: {
@@ -92,6 +94,7 @@ export interface Database {
           created_at?: string;
         };
         Update: never;
+        Relationships: [];
       };
       collected_messages: {
         Row: {
@@ -113,6 +116,7 @@ export interface Database {
         Update: {
           collect_count?: number;
         };
+        Relationships: [];
       };
       hammers: {
         Row: {
@@ -125,8 +129,13 @@ export interface Database {
         };
         Insert: never;
         Update: never;
+        Relationships: [];
       };
     };
+    Views: { [_ in never]: never };
+    Functions: { [_ in never]: never };
+    Enums: { [_ in never]: never };
+    CompositeTypes: { [_ in never]: never };
   };
 }
 

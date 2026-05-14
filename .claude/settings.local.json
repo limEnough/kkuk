@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git ls-remote *)",
+      "Bash(echo \"---exit: $?---\")",
+      "Bash(git push *)",
+      "Bash(gh --version)",
+      "Read(//c/Users/limenough/.ssh/**)",
+      "Bash(ssh -T git@github.com)",
+      "Bash(pnpm install *)",
+      "Bash(pnpm build *)"
+    ]
+  }
+}

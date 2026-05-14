@@ -1,5 +1,5 @@
-import { useNavigate } from 'react-router-dom';
-import { Button } from '@chamapp/ui';
+import { useNavigate } from "react-router-dom";
+import { Button } from "@chamapp/ui";
 
 export function OnboardingPage() {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ export function OnboardingPage() {
         </div>
 
         <h1 className="text-display-1 text-gray-900 mb-4 animate-fade-in-up">
-          오늘도, 잘 참았어요
+          오늘도, 잘 참았다
         </h1>
         <p className="text-body-1 text-gray-600 leading-relaxed animate-fade-in-up max-w-xs">
           참아야 했던 순간을
@@ -25,13 +25,13 @@ export function OnboardingPage() {
 
       {/* CTA */}
       <div className="flex flex-col gap-3">
-        <Button fullWidth onClick={() => navigate('/login')}>
+        <Button fullWidth onClick={() => navigate("/login")}>
           로그인으로 기록하기
         </Button>
         <Button
           fullWidth
           variant="secondary"
-          onClick={() => navigate('/main?guest=1')}
+          onClick={() => navigate("/main?guest=1")}
         >
           기록 없이 참아보기
         </Button>

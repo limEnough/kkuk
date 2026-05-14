@@ -9,7 +9,8 @@
     "@chamapp/haptics": "workspace:*",
     "@chamapp/messages": "workspace:*",
     "@chamapp/api": "workspace:*",
-    "@chamapp/ui": "workspace:*"
+    "@chamapp/ui": "workspace:*",
+    "react-hook-form": "^7.52.0"
   },
   "peerDependencies": {
     "react": "^18.3.0",
