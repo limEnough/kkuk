@@ -9,6 +9,10 @@ import { AuthCallbackPage } from './pages/AuthCallbackPage';
 import { MainPage } from './pages/MainPage';
 import { CalendarPage } from './pages/CalendarPage';
 import { MyPage } from './pages/MyPage';
+import { AccountPage } from './pages/AccountPage';
+import { HammerSelectPage } from './pages/HammerSelectPage';
+import { ItemManagePage } from './pages/ItemManagePage';
+import { CollectedMessagesPage } from './pages/CollectedMessagesPage';
 import { Layout } from './components/Layout';
 import { GuestRoute } from './components/GuestRoute';
 
@@ -53,6 +57,10 @@ function AppContent() {
         <Route path="/auth/callback" element={<AuthCallbackPage />} />
         <Route path="/main" element={<MainPage />} />
         <Route path="/calendar" element={<CalendarPage />} />
+        <Route path="/messages" element={<CollectedMessagesPage />} />
+        <Route path="/hammers" element={<HammerSelectPage />} />
+        <Route path="/items" element={<ItemManagePage />} />
+        <Route path="/account" element={<AccountPage />} />
         <Route path="/my" element={<MyPage />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />

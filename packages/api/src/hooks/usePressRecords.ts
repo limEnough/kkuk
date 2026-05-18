@@ -80,6 +80,35 @@ export function useMonthlyRecords(year: number, month: number) {
   });
 }
 
+/** 최근 N개월(현재 월 포함) 전체 기록 — 캘린더 상단 그래프용 */
+export function useRecentRecords(months = 12) {
+  const now = new Date();
+  const anchorYear = now.getFullYear();
+  const anchorMonth = now.getMonth() + 1; // 1~12
+
+  return useQuery({
+    queryKey: [...RECORDS_KEY, 'recent', months, anchorYear, anchorMonth],
+    queryFn: async (): Promise<PressRecord[]> => {
+      const supabase = getSupabaseClient();
+      // 현재 월 포함 N개월 전 1일부터
+      const start = new Date(
+        anchorYear,
+        anchorMonth - 1 - (months - 1),
+        1,
+      ).toISOString();
+
+      const { data, error } = await supabase
+        .from('press_records')
+        .select('*')
+        .gte('created_at', start)
+        .order('created_at', { ascending: false });
+
+      if (error) throw error;
+      return data ?? [];
+    },
+  });
+}
+
 /** 획득한 응원 문장 도감 */
 export function useCollectedMessages() {
   return useQuery({
