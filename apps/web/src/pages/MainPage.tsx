@@ -1,42 +1,42 @@
-import { useState } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import {
   useCreatePressRecord,
   useHammers,
   useProfile,
   useSession,
-} from '@chamapp/api';
+} from "@chamapp/api";
 import {
   ItemSelector,
   PressArea,
   PressResult,
   type SelectedItem,
-} from '@chamapp/feature-press';
-import { pickCheerMessage, type CheerMessage } from '@chamapp/messages';
+} from "@chamapp/feature-press";
+import { pickCheerMessage, type CheerMessage } from "@chamapp/messages";
 
-type Step = 'select' | 'press' | 'result';
+type Step = "select" | "press" | "result";
 
 export function MainPage() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const isGuest = searchParams.get('guest') === '1';
+  const isGuest = searchParams.get("guest") === "1";
 
   const { user } = useSession();
   const { data: profile } = useProfile(user?.id);
   const { data: hammers = [] } = useHammers();
   const createRecord = useCreatePressRecord();
 
-  const [step, setStep] = useState<Step>('select');
+  const [step, setStep] = useState<Step>("select");
   const [selected, setSelected] = useState<SelectedItem | null>(null);
   const [resultMessage, setResultMessage] = useState<CheerMessage | null>(null);
 
   const selectedHammer =
     hammers.find((h) => h.id === profile?.selected_hammer_id) ?? hammers[0];
-  const hammerImage = selectedHammer?.image_url ?? '/hammers/red.png';
+  const hammerImage = selectedHammer?.image_url ?? "/hammers/red.png";
 
   const handleSelect = (item: SelectedItem) => {
     setSelected(item);
-    setStep('press');
+    setStep("press");
   };
 
   const handleComplete = async (durationMs: number) => {
@@ -56,30 +56,28 @@ export function MainPage() {
           messageContent: message.content,
         });
       } catch (e) {
-        console.error('기록 저장 실패', e);
+        console.error("기록 저장 실패", e);
       }
     }
 
-    setStep('result');
+    setStep("result");
   };
 
   const handleAgain = () => {
-    setStep('select');
+    setStep("select");
     setSelected(null);
     setResultMessage(null);
   };
 
-  if (step === 'select') {
-    return (
-      <ItemSelector userId={user?.id ?? null} onSelect={handleSelect} />
-    );
+  if (step === "select") {
+    return <ItemSelector userId={user?.id ?? null} onSelect={handleSelect} />;
   }
 
-  if (step === 'press' && selected) {
+  if (step === "press" && selected) {
     return (
       <div className="flex flex-col min-h-screen bg-white">
         <button
-          onClick={() => setStep('select')}
+          onClick={() => setStep("select")}
           className="self-start m-4 text-caption-1 text-gray-500"
         >
           ← 다른 항목 선택
@@ -97,7 +95,7 @@ export function MainPage() {
     );
   }
 
-  if (step === 'result' && selected && resultMessage) {
+  if (step === "result" && selected && resultMessage) {
     return (
       <PressResult
         emoji={selected.emoji}
@@ -105,8 +103,8 @@ export function MainPage() {
         message={resultMessage.content}
         isGuest={isGuest || !user}
         onAgain={handleAgain}
-        onGoCalendar={() => navigate('/calendar')}
-        onSignUp={() => navigate('/login')}
+        onGoCalendar={() => navigate("/calendar")}
+        onSignUp={() => navigate("/login")}
       />
     );
   }

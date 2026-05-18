@@ -82,6 +82,7 @@ const preset: Partial<Config> = {
         'hammer-tap': 'hammer-tap 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
         'firework': 'firework 0.9s ease-out forwards',
         'slide-up': 'slide-up 0.3s cubic-bezier(0.32, 0.72, 0, 1)',
+        'slide-in-right': 'slide-in-right 0.3s cubic-bezier(0.32, 0.72, 0, 1)',
       },
       keyframes: {
         'fade-in': {
@@ -118,6 +119,10 @@ const preset: Partial<Config> = {
         'slide-up': {
           '0%': { transform: 'translateY(100%)' },
           '100%': { transform: 'translateY(0)' },
+        },
+        'slide-in-right': {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(0)' },
         },
       },
       transitionTimingFunction: {

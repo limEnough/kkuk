@@ -1,45 +1,178 @@
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
-import { useSignInWithEmail, useSignInWithGoogle } from '@chamapp/api';
-import { Button, Input } from '@chamapp/ui';
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import {
+  useSignInWithEmail,
+  useSignInWithGoogle,
+  useVerifyEmailOtp,
+} from "@chamapp/api";
+import { Button, Input, useToast } from "@chamapp/ui";
 
 interface EmailForm {
   email: string;
 }
 
+interface CodeForm {
+  code: string;
+}
+
 export function LoginPage() {
   const navigate = useNavigate();
+  const toast = useToast();
   const signInGoogle = useSignInWithGoogle();
   const signInEmail = useSignInWithEmail();
-  const [emailSent, setEmailSent] = useState(false);
+  const verifyOtp = useVerifyEmailOtp();
 
-  const { register, handleSubmit, formState: { errors } } = useForm<EmailForm>();
+  // 코드 입력 단계로 넘어갔는지 + 어떤 이메일로 보냈는지
+  const [sentEmail, setSentEmail] = useState<string | null>(null);
+  const [isExistingUser, setIsExistingUser] = useState<boolean | null>(null);
 
-  const onEmailSubmit = async ({ email }: EmailForm) => {
-    await signInEmail.mutateAsync({ email });
-    setEmailSent(true);
+  const emailForm = useForm<EmailForm>();
+  const codeForm = useForm<CodeForm>();
+
+  const sendCode = async (email: string) => {
+    const { isExistingUser: existing } = await signInEmail.mutateAsync({
+      email,
+    });
+    setIsExistingUser(existing);
+    setSentEmail(email);
   };
 
-  if (emailSent) {
+  const onEmailSubmit = async ({ email }: EmailForm) => {
+    try {
+      await sendCode(email);
+    } catch (err) {
+      toast.show(
+        err instanceof Error
+          ? err.message
+          : "인증 코드 전송에 실패했어요. 잠시 후 다시 시도해주세요.",
+        "error",
+      );
+    }
+  };
+
+  const onResend = async () => {
+    if (!sentEmail) return;
+    try {
+      await signInEmail.mutateAsync({ email: sentEmail });
+      toast.show("인증 코드를 다시 보냈어요.", "success");
+    } catch (err) {
+      toast.show(
+        err instanceof Error
+          ? err.message
+          : "재전송에 실패했어요. 잠시 후 다시 시도해주세요.",
+        "error",
+      );
+    }
+  };
+
+  const onCodeSubmit = async ({ code }: CodeForm) => {
+    if (!sentEmail) return;
+    try {
+      await verifyOtp.mutateAsync({ email: sentEmail, token: code });
+      navigate("/main", { replace: true });
+    } catch (err) {
+      codeForm.resetField("code");
+      toast.show(
+        err instanceof Error
+          ? err.message
+          : "인증에 실패했어요. 코드를 다시 확인해주세요.",
+        "error",
+      );
+    }
+  };
+
+  const backToEmail = () => {
+    setSentEmail(null);
+    setIsExistingUser(null);
+    codeForm.reset();
+  };
+
+  const onGoogleSignIn = () => {
+    signInGoogle.mutate(undefined, {
+      onError: (err) => {
+        toast.show(
+          err instanceof Error
+            ? err.message
+            : "Google 로그인에 실패했어요. 잠시 후 다시 시도해주세요.",
+          "error",
+        );
+      },
+    });
+  };
+
+  // ── 2단계: 인증 코드 입력 ──────────────────────────────────────────────
+  if (sentEmail) {
     return (
-      <div className="flex flex-col min-h-screen bg-white px-6 py-12 items-center justify-center text-center">
-        <div className="w-20 h-20 rounded-full bg-blue-50 flex items-center justify-center mb-8">
-          <span className="text-4xl">📬</span>
+      <div className="flex flex-col min-h-screen bg-white px-6 py-12">
+        <div className="mb-10">
+          <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mb-6">
+            <span className="text-3xl">{isExistingUser ? "👋" : "📬"}</span>
+          </div>
+          <h1 className="text-title-1 text-gray-900 mb-2">
+            {isExistingUser === true
+              ? "다시 오셨네요"
+              : isExistingUser === false
+                ? "환영해요"
+                : "인증 코드를 입력해주세요"}
+          </h1>
+          <p className="text-body-2 text-gray-600">
+            <span className="text-gray-900 font-medium">{sentEmail}</span> 으로
+            보낸
+            <br />
+            6자리 인증 코드를 입력해주세요.
+          </p>
         </div>
-        <h1 className="text-title-1 text-gray-900 mb-3">이메일을 확인해주세요</h1>
-        <p className="text-body-2 text-gray-600 mb-8">
-          로그인 링크를 보내드렸어요.
-          <br />
-          링크를 누르면 자동으로 로그인됩니다.
-        </p>
-        <Button variant="tertiary" onClick={() => setEmailSent(false)}>
-          다시 보내기
-        </Button>
+
+        <form
+          onSubmit={codeForm.handleSubmit(onCodeSubmit)}
+          className="flex flex-col gap-4"
+        >
+          <Input
+            label="인증 코드"
+            inputMode="numeric"
+            autoComplete="one-time-code"
+            placeholder="000000"
+            maxLength={6}
+            className="text-center tracking-[0.4em] text-title-2"
+            {...codeForm.register("code", {
+              required: "인증 코드를 입력해주세요",
+              pattern: {
+                value: /^\d{6}$/,
+                message: "6자리 숫자를 입력해주세요",
+              },
+            })}
+            error={codeForm.formState.errors.code?.message}
+          />
+          <Button type="submit" fullWidth disabled={verifyOtp.isPending}>
+            {verifyOtp.isPending ? "확인 중..." : "로그인"}
+          </Button>
+        </form>
+
+        <div className="flex items-center justify-center gap-1 mt-6 text-caption-1">
+          <span className="text-gray-500">코드를 못 받으셨나요?</span>
+          <button
+            type="button"
+            onClick={onResend}
+            disabled={signInEmail.isPending}
+            className="text-blue-500 font-medium hover:text-blue-600 disabled:opacity-50"
+          >
+            {signInEmail.isPending ? "전송 중..." : "다시 보내기"}
+          </button>
+        </div>
+
+        {/* <button
+          type="button"
+          onClick={backToEmail}
+          className="mt-8 self-center text-caption-1 text-gray-500 hover:text-gray-700"
+        >
+          ← 다른 이메일로 시도
+        </button> */}
       </div>
     );
   }
 
+  // ── 1단계: 이메일 입력 ────────────────────────────────────────────────
   return (
     <div className="flex flex-col min-h-screen bg-white px-6 py-12">
       <div className="mb-12">
@@ -51,7 +184,7 @@ export function LoginPage() {
 
       {/* Google 로그인 */}
       <button
-        onClick={() => signInGoogle.mutate(undefined)}
+        onClick={onGoogleSignIn}
         disabled={signInGoogle.isPending}
         className="flex items-center justify-center gap-3 w-full h-14 rounded-md bg-gray-100 hover:bg-gray-200 active:scale-[0.98] transition-all text-subtitle text-gray-900 disabled:opacity-50"
       >
@@ -66,32 +199,28 @@ export function LoginPage() {
         <div className="flex-1 h-px bg-gray-200" />
       </div>
 
-      {/* 이메일 매직링크 */}
-      <form onSubmit={handleSubmit(onEmailSubmit)} className="flex flex-col gap-4">
+      {/* 이메일 인증 코드 */}
+      <form
+        onSubmit={emailForm.handleSubmit(onEmailSubmit)}
+        className="flex flex-col gap-4"
+      >
         <Input
           type="email"
           label="이메일"
           placeholder="you@example.com"
-          {...register('email', {
-            required: '이메일을 입력해주세요',
+          {...emailForm.register("email", {
+            required: "이메일을 입력해주세요",
             pattern: {
               value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-              message: '올바른 이메일 형식이 아니에요',
+              message: "올바른 이메일 형식이 아니에요",
             },
           })}
-          error={errors.email?.message}
+          error={emailForm.formState.errors.email?.message}
         />
         <Button type="submit" fullWidth disabled={signInEmail.isPending}>
-          {signInEmail.isPending ? '전송 중...' : '이메일로 로그인 링크 받기'}
+          {signInEmail.isPending ? "전송 중..." : "이메일로 인증 코드 받기"}
         </Button>
       </form>
-
-      <button
-        onClick={() => navigate(-1)}
-        className="mt-8 text-caption-1 text-gray-500 hover:text-gray-700"
-      >
-        ← 돌아가기
-      </button>
     </div>
   );
 }

@@ -7,14 +7,16 @@ export function OnboardingPage() {
   return (
     <div className="flex flex-col min-h-screen bg-white px-6 py-12">
       {/* Hero */}
-      <div className="flex-1 flex flex-col items-center justify-center text-center">
-        {/* TODO: Lottie 애니메이션 자리 */}
-        <div className="w-40 h-40 rounded-full bg-blue-50 flex items-center justify-center mb-8 animate-fade-in">
+      <div className="flex-1 flex flex-col items-center justify-center text-center gap-4">
+        {/* <div className="w-40 h-40 rounded-full bg-blue-50 flex items-center justify-center mb-8 animate-fade-in">
           <span className="text-7xl">🔨</span>
-        </div>
+        </div> */}
+        <figure className="w-60 h-auto">
+          <img src="/img-keyvisual.png" alt="키비주얼" />
+        </figure>
 
         <h1 className="text-display-1 text-gray-900 mb-4 animate-fade-in-up">
-          오늘도, 잘 참았다
+          나를 위해 꾹
         </h1>
         <p className="text-body-1 text-gray-600 leading-relaxed animate-fade-in-up max-w-xs">
           참아야 했던 순간을

@@ -1,5 +1,5 @@
-import { useNavigate } from 'react-router-dom';
-import { useProfile, useSession, useSignOut } from '@chamapp/api';
+import { useNavigate } from "react-router-dom";
+import { useProfile, useSession, useSignOut } from "@chamapp/api";
 
 export function MyPage() {
   const navigate = useNavigate();
@@ -9,26 +9,19 @@ export function MyPage() {
 
   if (loading) return null;
   if (!user) {
-    navigate('/login');
+    navigate("/login");
     return null;
   }
 
   const handleSignOut = async () => {
     await signOut.mutateAsync();
-    navigate('/');
+    navigate("/");
   };
 
   return (
     <div className="flex flex-col min-h-screen bg-white px-6 py-8">
-      <button
-        onClick={() => navigate('/main')}
-        className="self-start text-caption-1 text-gray-500 mb-4"
-      >
-        ← 돌아가기
-      </button>
-
       <h1 className="text-display-2 text-gray-900 mb-8">
-        {profile?.nickname ?? '닉네임을 설정해주세요'}
+        {profile?.nickname ?? "닉네임을 설정해주세요"}
       </h1>
 
       <div className="flex flex-col gap-2">

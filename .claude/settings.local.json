@@ -8,7 +8,12 @@
       "Read(//c/Users/limenough/.ssh/**)",
       "Bash(ssh -T git@github.com)",
       "Bash(pnpm install *)",
-      "Bash(pnpm build *)"
+      "Bash(pnpm build *)",
+      "Bash(mkdir \"C:/Users/limenough/kkuk/apps/web/public\")",
+      "Bash(mv \"C:/Users/limenough/kkuk/img-keyvisual.png\" \"C:/Users/limenough/kkuk/apps/web/public/img-keyvisual.png\")",
+      "Bash(npx tsc *)",
+      "Bash(pnpm --filter @chamapp/web typecheck)",
+      "Bash(pnpm --filter @chamapp/web lint)"
     ]
   }
 }
