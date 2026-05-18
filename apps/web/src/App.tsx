@@ -33,7 +33,14 @@ function AppContent() {
 
   return (
     <Routes>
-      <Route path="/" element={<OnboardingPage />} />
+      <Route
+        path="/"
+        element={
+          <GuestRoute>
+            <OnboardingPage />
+          </GuestRoute>
+        }
+      />
       <Route element={<Layout />}>
         <Route
           path="/login"

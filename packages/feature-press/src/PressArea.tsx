@@ -74,7 +74,9 @@ export function PressArea({
       celebrationHaptic();
       setShowFirework(true);
       // 폭죽 끝난 뒤 onComplete 콜백
-      const actualDuration = performance.now() - startTimeRef.current;
+      const actualDuration = Math.round(
+        performance.now() - startTimeRef.current,
+      );
       window.setTimeout(() => {
         setShowFirework(false);
         onComplete(actualDuration);

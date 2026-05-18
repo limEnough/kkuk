@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import { atom, useAtom, useAtomValue } from 'jotai';
+import { atom, useAtom, useAtomValue, useSetAtom } from 'jotai';
 import type { Session, User } from '@supabase/supabase-js';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { getSupabaseClient } from '../client';
 
 // ============================================================================
@@ -255,11 +255,19 @@ export function useVerifyEmailOtp() {
 // ============================================================================
 
 export function useSignOut() {
+  const qc = useQueryClient();
+  const setSession = useSetAtom(sessionAtom);
   return useMutation({
     mutationFn: async () => {
       const supabase = getSupabaseClient();
+      // local: 이 브라우저의 저장된 세션(localStorage)만 제거
       const { error } = await supabase.auth.signOut();
       if (error) throw error;
+    },
+    onSuccess: () => {
+      // 저장된 세션/사용자 상태 즉시 비우고, 이전 사용자 데이터 캐시도 폐기
+      setSession(null);
+      qc.clear();
     },
   });
 }

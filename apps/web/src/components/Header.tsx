@@ -27,7 +27,7 @@ export function Header() {
   const handleAuthClick = async () => {
     if (isLoggedIn) {
       await signOut.mutateAsync();
-      navigate("/");
+      navigate("/", { replace: true });
     } else {
       navigate("/login");
     }

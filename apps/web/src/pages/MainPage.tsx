@@ -13,11 +13,13 @@ import {
   type SelectedItem,
 } from "@chamapp/feature-press";
 import { pickCheerMessage, type CheerMessage } from "@chamapp/messages";
+import { useToast } from "@chamapp/ui";
 
 type Step = "select" | "press" | "result";
 
 export function MainPage() {
   const navigate = useNavigate();
+  const toast = useToast();
   const [searchParams] = useSearchParams();
   const isGuest = searchParams.get("guest") === "1";
 
@@ -57,6 +59,10 @@ export function MainPage() {
         });
       } catch (e) {
         console.error("기록 저장 실패", e);
+        toast.show(
+          "기록 저장에 실패했어요.\n네트워크를 확인하고 다시 시도해주세요.",
+          "error",
+        );
       }
     }
 

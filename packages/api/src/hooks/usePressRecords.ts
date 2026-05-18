@@ -25,7 +25,8 @@ export function useCreatePressRecord() {
           item_id: input.itemId,
           item_label_snapshot: input.itemLabel,
           item_emoji_snapshot: input.itemEmoji,
-          duration_ms: input.durationMs,
+          duration_ms: Math.round(input.durationMs), // int 컬럼 — 소수 ms 방지
+
           message_id: input.messageId,
           message_content: input.messageContent,
         })
