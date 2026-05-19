@@ -2,12 +2,18 @@
 -- 초기 시드 데이터
 -- ============================================================================
 
--- 기본 망치 (시스템 제공)
+-- 기본 망치 (시스템 제공) — public/hammers 의 실제 이미지와 1:1
 insert into public.hammers (name, image_url, sort_order, is_default) values
-  ('빨간 뿅망치', '/hammers/red.png', 1, true),
-  ('파란 뿅망치', '/hammers/blue.png', 2, false),
-  ('황금 뿅망치', '/hammers/gold.png', 3, false),
-  ('무지개 뿅망치', '/hammers/rainbow.png', 4, false);
+  ('기본 뿅망치',     '/hammers/img-origin.png',    1,  true),
+  ('변환 뿅망치',     '/hammers/img-transform.png', 2,  false),
+  ('장인 뿅망치',     '/hammers/img-expert.png',    3,  false),
+  ('왕의 뿅망치',     '/hammers/img-king.png',      4,  false),
+  ('신의 뿅망치',     '/hammers/img-god.png',       5,  false),
+  ('크리스탈 뿅망치', '/hammers/img-crystal.png',   6,  false),
+  ('우주 뿅망치',     '/hammers/img-universe.png',  7, false),
+  ('사탕 뿅망치',     '/hammers/img-candy.png',     8,  false),
+  ('깃털 뿅망치',     '/hammers/img-feather.png',   9,  false),
+  ('꽃 뿅망치',       '/hammers/img-flower.png',    10,  false);
 
 -- 기본 참을 항목 (user_id = null = 모두에게 보임)
 -- category는 messages 패키지의 그룹 키와 매칭됨

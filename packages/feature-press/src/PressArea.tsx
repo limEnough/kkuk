@@ -6,6 +6,9 @@ import {
 } from '@chamapp/haptics';
 import { useLongPress } from './useLongPress';
 
+/** 선택 망치 이미지가 없거나 깨졌을 때의 기본 망치 */
+const FALLBACK_HAMMER_SRC = '/hammers/img-origin.png';
+
 export interface PressAreaProps {
   /** 항목 이모지 (예: '🍗') */
   emoji: string;
@@ -44,8 +47,35 @@ export function PressArea({
 }: PressAreaProps) {
   const lastTapRef = useRef<number>(0);
   const startTimeRef = useRef<number>(0);
+  const zoneRef = useRef<HTMLDivElement>(null);
   const [hammerVisible, setHammerVisible] = useState(false);
   const [hammerKey, setHammerKey] = useState(0);
+  // 누르기 영역(원형) 내부에서 포인터를 따라다니는 망치 위치(px, 영역 기준)
+  const [hammerPos, setHammerPos] = useState<{ x: number; y: number } | null>(
+    null,
+  );
+
+  // 포인터 좌표를 영역 기준으로 변환 + 원 안으로 클램프
+  const trackHammer = (e: React.PointerEvent) => {
+    const el = zoneRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const cx = rect.width / 2;
+    const cy = rect.height / 2;
+    let x = e.clientX - rect.left;
+    let y = e.clientY - rect.top;
+    const dx = x - cx;
+    const dy = y - cy;
+    const dist = Math.hypot(dx, dy);
+    // 망치가 원형 영역 밖으로 안 나가도록 반지름 - 여백으로 클램프
+    const maxR = Math.min(cx, cy) - 36;
+    if (dist > maxR && dist > 0) {
+      const s = maxR / dist;
+      x = cx + dx * s;
+      y = cy + dy * s;
+    }
+    setHammerPos({ x, y });
+  };
 
   // 완료 직후 폭죽 표시
   const [showFirework, setShowFirework] = useState(false);
@@ -53,15 +83,17 @@ export function PressArea({
   const { handlers, progress, isPressing } = useLongPress({
     duration,
     tickInterval: 50,
-    moveThreshold: 16,
+    // 영역 안에서는 마우스를 따라다녀야 하므로 이동-취소를 사실상 끔.
+    // 영역을 벗어나면 onPointerLeave(handlers)가 취소를 담당.
+    moveThreshold: 100000,
     onStart: () => {
       startTimeRef.current = performance.now();
       lastTapRef.current = 0;
       setHammerVisible(true);
     },
     onProgress: (p) => {
-      // 망치는 약 600~750ms 주기로 두드림 (5초 동안 ~7번)
-      const tapInterval = 700;
+      // 더 빠르게 두드림
+      const tapInterval = 420;
       const now = performance.now();
       if (now - lastTapRef.current >= tapInterval) {
         lastTapRef.current = now;
@@ -104,7 +136,16 @@ export function PressArea({
 
       {/* 누르기 영역 */}
       <div
+        ref={zoneRef}
         {...handlers}
+        onPointerDown={(e) => {
+          trackHammer(e);
+          handlers.onPointerDown(e);
+        }}
+        onPointerMove={(e) => {
+          trackHammer(e);
+          handlers.onPointerMove(e);
+        }}
         role="button"
         tabIndex={0}
         aria-label={`${label}을(를) 위해 꾹 누르기`}
@@ -131,17 +172,33 @@ export function PressArea({
 
         {/* 망치 (두드릴 때마다 hammerKey 변경으로 애니메이션 재시작) */}
         {hammerVisible && (
-          <img
-            key={hammerKey}
-            src={hammerImageUrl}
-            alt=""
-            aria-hidden
-            className="absolute -top-4 right-4 w-24 h-24 pointer-events-none"
+          <div
+            className="absolute pointer-events-none"
             style={{
-              animation: 'hammer-tap 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
-              transformOrigin: '80% 90%',
+              left: hammerPos ? `${hammerPos.x}px` : '72%',
+              top: hammerPos ? `${hammerPos.y}px` : '30%',
+              transform: 'translate(-50%, -62%)',
             }}
-          />
+          >
+            <img
+              key={hammerKey}
+              src={hammerImageUrl || FALLBACK_HAMMER_SRC}
+              alt=""
+              aria-hidden
+              onError={(e) => {
+                const img = e.currentTarget;
+                if (!img.src.endsWith(FALLBACK_HAMMER_SRC)) {
+                  img.src = FALLBACK_HAMMER_SRC;
+                }
+              }}
+              className="w-24 h-24"
+              style={{
+                animation:
+                  'hammer-tap 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)',
+                transformOrigin: '75% 88%',
+              }}
+            />
+          </div>
         )}
 
         {/* 폭죽 */}

@@ -79,7 +79,7 @@ const preset: Partial<Config> = {
         'fade-in-up': 'fade-in-up 0.3s ease-out',
         'scale-in': 'scale-in 0.2s ease-out',
         'shake-soft': 'shake-soft 0.12s ease-in-out infinite',
-        'hammer-tap': 'hammer-tap 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
+        'hammer-tap': 'hammer-tap 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)',
         'firework': 'firework 0.9s ease-out forwards',
         'slide-up': 'slide-up 0.3s cubic-bezier(0.32, 0.72, 0, 1)',
         'slide-in-right': 'slide-in-right 0.3s cubic-bezier(0.32, 0.72, 0, 1)',
@@ -103,10 +103,15 @@ const preset: Partial<Config> = {
           '50%': { transform: 'translate(1.5px, -0.5px)' },
           '75%': { transform: 'translate(-0.5px, 1px)' },
         },
+        // 손잡이를 축으로 좌우로 휘둘러 두드리는 스윙
+        // (transformOrigin은 사용처에서 손잡이 쪽으로 지정)
         'hammer-tap': {
-          '0%': { transform: 'translateY(-40%) rotate(-30deg)' },
-          '50%': { transform: 'translateY(0) rotate(0)' },
-          '100%': { transform: 'translateY(-25%) rotate(-20deg)' },
+          '0%': { transform: 'rotate(30deg)' },
+          '30%': { transform: 'rotate(-26deg)' }, // 빠른 타격
+          '48%': { transform: 'rotate(-4deg)' }, // 크게 튕겨 올라옴
+          '66%': { transform: 'rotate(-20deg)' }, // 2차 바운스 타격
+          '82%': { transform: 'rotate(-10deg)' },
+          '100%': { transform: 'rotate(30deg)' }, // 준비 자세 복귀
         },
         'firework': {
           '0%': { transform: 'scale(0) translate(0, 0)', opacity: '1' },
