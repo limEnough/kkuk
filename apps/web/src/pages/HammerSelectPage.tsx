@@ -7,6 +7,8 @@ import {
 } from "@chamapp/api";
 import { useToast } from "@chamapp/ui";
 
+const DEFAULT_HAMMER_SRC = "/hammers/img-origin.png";
+
 export function HammerSelectPage() {
   const navigate = useNavigate();
   const toast = useToast();
@@ -37,7 +39,7 @@ export function HammerSelectPage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-white px-6 py-8">
+    <div className="flex flex-col min-h-full bg-white px-6 py-8">
       <h1 className="text-display-2 text-gray-900 mb-2">망치 선택</h1>
       <p className="text-body-2 text-gray-500 mb-8">
         꾹 누를 때 두드릴 망치를 골라주세요
@@ -70,8 +72,14 @@ export function HammerSelectPage() {
                 }`}
               >
                 <img
-                  src={h.image_url}
+                  src={h.image_url || DEFAULT_HAMMER_SRC}
                   alt={h.name}
+                  onError={(e) => {
+                    const img = e.currentTarget;
+                    if (!img.src.endsWith(DEFAULT_HAMMER_SRC)) {
+                      img.src = DEFAULT_HAMMER_SRC;
+                    }
+                  }}
                   className="w-20 h-20 object-contain"
                 />
                 <span

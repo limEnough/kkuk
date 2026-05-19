@@ -141,7 +141,7 @@ export function CalendarPage() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-white px-6 py-8">
+    <div className="flex flex-col min-h-full bg-white px-6 py-8">
       <div className="flex items-center gap-1 mb-2 -ml-2">
         <button
           type="button"

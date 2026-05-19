@@ -66,7 +66,7 @@ export function ItemSelector({ userId, onSelect }: ItemSelectorProps) {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-white px-6 py-12">
+    <div className="flex flex-col min-h-full bg-white px-6 py-12">
       <div className="mb-8">
         <p className="text-caption-1 text-gray-500 mb-1">오늘은</p>
         <h1 className="text-display-2 text-gray-900">무엇을 참아볼까요?</h1>
@@ -103,6 +103,16 @@ export function ItemSelector({ userId, onSelect }: ItemSelectorProps) {
         open={sheetOpen}
         onClose={() => setSheetOpen(false)}
         title="새 항목 추가"
+        footer={
+          <Button
+            type="button"
+            fullWidth
+            disabled={createItem.isPending}
+            onClick={handleSubmit(onSubmit)}
+          >
+            {createItem.isPending ? '추가하는 중...' : '추가하기'}
+          </Button>
+        }
       >
         <form
           onSubmit={handleSubmit(onSubmit)}
@@ -171,14 +181,6 @@ export function ItemSelector({ userId, onSelect }: ItemSelectorProps) {
             )}
           </div>
 
-          <Button
-            type="submit"
-            fullWidth
-            disabled={createItem.isPending}
-            className="mt-2"
-          >
-            {createItem.isPending ? '추가하는 중...' : '추가하기'}
-          </Button>
         </form>
       </BottomSheet>
     </div>

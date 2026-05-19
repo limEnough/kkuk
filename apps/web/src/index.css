@@ -7,7 +7,7 @@
 @layer base {
   html,
   body {
-    @apply bg-white text-gray-900;
+    @apply bg-gray-100 text-gray-900;
     font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

@@ -38,7 +38,7 @@ export function PressResult({
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen bg-white px-6 py-12">
+    <div className="flex flex-col min-h-full bg-white px-6 py-12">
       {/* 상단 인디케이터 */}
       <div
         className={`flex flex-col items-center transition-all duration-500 ease-toss ${

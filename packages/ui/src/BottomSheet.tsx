@@ -8,6 +8,8 @@ export interface BottomSheetProps {
   children: ReactNode;
   /** 본문 영역에 패딩을 줄지 (기본 true) */
   padded?: boolean;
+  /** 스크롤 영역 밖, 시트 하단에 고정되는 footer (타이틀처럼 항상 보임) */
+  footer?: ReactNode;
 }
 
 export function BottomSheet({
@@ -16,6 +18,7 @@ export function BottomSheet({
   title,
   children,
   padded = true,
+  footer,
 }: BottomSheetProps) {
   // 열려있을 때 body 스크롤 잠금 + ESC로 닫기
   useEffect(() => {
@@ -66,6 +69,12 @@ export function BottomSheet({
         <div className={`flex-1 overflow-y-auto ${padded ? 'px-6 pt-2' : ''}`}>
           {children}
         </div>
+        {/* 하단 고정 footer — 타이틀처럼 스크롤되지 않음 */}
+        {footer && (
+          <div className="shrink-0 border-t border-gray-100 px-6 pt-3">
+            {footer}
+          </div>
+        )}
       </div>
     </div>,
     document.body,

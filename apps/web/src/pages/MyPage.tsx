@@ -19,7 +19,7 @@ export function MyPage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-white px-6 py-8">
+    <div className="flex flex-col min-h-full bg-white px-6 py-8">
       <h1 className="text-display-2 text-gray-900 mb-8">
         {profile?.nickname ?? "닉네임을 설정해주세요"}
       </h1>

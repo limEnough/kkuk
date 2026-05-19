@@ -13,7 +13,7 @@ export function CollectedMessagesPage() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-white px-6 py-8">
+    <div className="flex flex-col min-h-full bg-white px-6 py-8">
       <h1 className="text-display-2 text-gray-900 mb-2">획득한 문장</h1>
       <p className="text-body-2 text-gray-500 mb-8">
         지금까지 받아본 응원 문장 {messages.length}개

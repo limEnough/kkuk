@@ -74,7 +74,12 @@ export function App() {
       <QueryClientProvider client={queryClient}>
         <ToastProvider>
           <BrowserRouter>
-            <AppContent />
+            {/* 모바일 전용 적응형 셸: PC에선 가운데 폰 너비 컬럼, 양옆은 연회색 */}
+            <div className="min-h-screen bg-gray-100 flex justify-center">
+              <div className="w-full max-w-[480px] min-h-screen bg-white shadow-card">
+                <AppContent />
+              </div>
+            </div>
           </BrowserRouter>
         </ToastProvider>
       </QueryClientProvider>

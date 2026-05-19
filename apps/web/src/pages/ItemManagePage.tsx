@@ -84,7 +84,7 @@ export function ItemManagePage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-white px-6 py-8">
+    <div className="flex flex-col min-h-full bg-white px-6 py-8">
       <h1 className="text-display-2 text-gray-900 mb-2">참을 항목 관리</h1>
       <p className="text-body-2 text-gray-500 mb-8">
         나만의 항목을 추가하거나 삭제할 수 있어요
@@ -163,6 +163,16 @@ export function ItemManagePage() {
         open={sheetOpen}
         onClose={() => setSheetOpen(false)}
         title="새 항목 추가"
+        footer={
+          <Button
+            type="button"
+            fullWidth
+            disabled={createItem.isPending}
+            onClick={handleSubmit(onSubmit)}
+          >
+            {createItem.isPending ? "추가하는 중..." : "추가하기"}
+          </Button>
+        }
       >
         <form
           onSubmit={handleSubmit(onSubmit)}
@@ -228,14 +238,6 @@ export function ItemManagePage() {
             )}
           </div>
 
-          <Button
-            type="submit"
-            fullWidth
-            disabled={createItem.isPending}
-            className="mt-2"
-          >
-            {createItem.isPending ? "추가하는 중..." : "추가하기"}
-          </Button>
         </form>
       </BottomSheet>
     </div>

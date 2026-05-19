@@ -90,18 +90,21 @@ export function SideMenu({ open, onClose }: SideMenuProps) {
   const nickname = profile?.nickname?.trim();
 
   return createPortal(
-    <div className="fixed inset-0 z-50 flex justify-end">
+    <div className="fixed inset-0 z-50">
       <button
         type="button"
         aria-label="메뉴 닫기"
         onClick={onClose}
         className="absolute inset-0 bg-black/40 animate-fade-in"
       />
-      <aside
-        role="dialog"
-        aria-modal="true"
-        className="relative w-72 max-w-[80vw] h-full bg-white animate-slide-in-right flex flex-col"
-      >
+      {/* 가운데 폰 컬럼에 맞춰 드로어 정렬 (PC에서도 컬럼 우측 끝에 붙음) */}
+      <div className="absolute inset-0 flex justify-center pointer-events-none">
+        <div className="relative w-full max-w-[480px] h-full flex justify-end">
+          <aside
+            role="dialog"
+            aria-modal="true"
+            className="pointer-events-auto relative w-72 max-w-[80vw] h-full bg-white animate-slide-in-right flex flex-col"
+          >
         <div className="flex items-center justify-end h-12 px-2 shrink-0">
           <button
             type="button"
@@ -180,7 +183,9 @@ export function SideMenu({ open, onClose }: SideMenuProps) {
             로그아웃
           </button>
         </div>
-      </aside>
+          </aside>
+        </div>
+      </div>
     </div>,
     document.body,
   );

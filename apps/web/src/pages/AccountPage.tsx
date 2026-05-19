@@ -58,7 +58,7 @@ export function AccountPage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-white px-6 py-8">
+    <div className="flex flex-col min-h-full bg-white px-6 py-8">
       <h1 className="text-display-2 text-gray-900 mb-8">계정 관리</h1>
 
       <form

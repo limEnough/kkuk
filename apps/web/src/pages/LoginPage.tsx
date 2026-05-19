@@ -104,7 +104,7 @@ export function LoginPage() {
   // ── 2단계: 인증 코드 입력 ──────────────────────────────────────────────
   if (sentEmail) {
     return (
-      <div className="flex flex-col min-h-screen bg-white px-6 py-12">
+      <div className="flex flex-col min-h-full bg-white px-6 py-12">
         <div className="mb-10">
           <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mb-6">
             <span className="text-3xl">{isExistingUser ? "👋" : "📬"}</span>
@@ -174,7 +174,7 @@ export function LoginPage() {
 
   // ── 1단계: 이메일 입력 ────────────────────────────────────────────────
   return (
-    <div className="flex flex-col min-h-screen bg-white px-6 py-12">
+    <div className="flex flex-col min-h-full bg-white px-6 py-12">
       <div className="mb-12">
         <h1 className="text-display-2 text-gray-900 mb-2">로그인</h1>
         <p className="text-body-2 text-gray-600">

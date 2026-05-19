@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import {
   useCreatePressRecord,
   useHammers,
@@ -19,6 +19,7 @@ type Step = "select" | "press" | "result";
 
 export function MainPage() {
   const navigate = useNavigate();
+  const location = useLocation();
   const toast = useToast();
   const [searchParams] = useSearchParams();
   const isGuest = searchParams.get("guest") === "1";
@@ -32,9 +33,17 @@ export function MainPage() {
   const [selected, setSelected] = useState<SelectedItem | null>(null);
   const [resultMessage, setResultMessage] = useState<CheerMessage | null>(null);
 
+  // /main 으로 진입(헤더 홈 버튼 포함)할 때마다 항목 선택 단계로 초기화.
+  // 같은 경로로 navigate 해도 location.key 가 갱신되므로 동작함.
+  useEffect(() => {
+    setStep("select");
+    setSelected(null);
+    setResultMessage(null);
+  }, [location.key]);
+
   const selectedHammer =
     hammers.find((h) => h.id === profile?.selected_hammer_id) ?? hammers[0];
-  const hammerImage = selectedHammer?.image_url ?? "/hammers/red.png";
+  const hammerImage = selectedHammer?.image_url ?? "/hammers/img-origin.png";
 
   const handleSelect = (item: SelectedItem) => {
     setSelected(item);
@@ -81,7 +90,7 @@ export function MainPage() {
 
   if (step === "press" && selected) {
     return (
-      <div className="flex flex-col min-h-screen bg-white">
+      <div className="flex flex-col min-h-full bg-white">
         <button
           onClick={() => setStep("select")}
           className="self-start m-4 text-caption-1 text-gray-500"
