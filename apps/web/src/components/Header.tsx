@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useSession, useSignOut } from "@chamapp/api";
+import { useSession } from "@chamapp/api";
 import { SideMenu } from "./SideMenu";
 
 export function Header() {
   const navigate = useNavigate();
   const location = useLocation();
   const { user } = useSession();
-  const signOut = useSignOut();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const isLoggedIn = !!user;
@@ -21,15 +20,6 @@ export function Header() {
       navigate("/main", { replace: true });
     } else {
       navigate(-1);
-    }
-  };
-
-  const handleAuthClick = async () => {
-    if (isLoggedIn) {
-      await signOut.mutateAsync();
-      navigate("/", { replace: true });
-    } else {
-      navigate("/login");
     }
   };
 
@@ -50,14 +40,23 @@ export function Header() {
         </div>
 
         <div className="flex items-center gap-1">
-          {!isOnLogin && (
+          {!isLoggedIn && !isOnLogin && (
             <button
               type="button"
-              onClick={handleAuthClick}
-              disabled={signOut.isPending}
-              className="px-3 h-9 rounded-md text-caption-1 text-gray-700 hover:bg-gray-50 active:scale-95 transition-all disabled:opacity-50"
+              onClick={() => navigate("/login")}
+              className="px-3 h-9 rounded-md text-caption-1 text-gray-700 hover:bg-gray-50 active:scale-95 transition-all"
             >
-              {isLoggedIn ? "로그아웃" : "로그인"}
+              로그인
+            </button>
+          )}
+          {isLoggedIn && (
+            <button
+              type="button"
+              aria-label="홈으로"
+              onClick={() => navigate("/main")}
+              className="flex items-center justify-center w-10 h-10 rounded-md hover:bg-gray-50 active:scale-95 transition-all"
+            >
+              {/* <HomeIcon /> */}홈
             </button>
           )}
           {isLoggedIn && (
@@ -92,6 +91,20 @@ function BackIcon() {
       className="text-gray-900"
     >
       <polyline points="15 18 9 12 15 6" />
+    </svg>
+  );
+}
+
+function HomeIcon() {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className="text-gray-900"
+    >
+      <path d="M12 3.2a1.6 1.6 0 0 1 1.02.37l6.4 5.33a2.4 2.4 0 0 1 .86 1.84V18.4A2.6 2.6 0 0 1 17.68 21H6.32A2.6 2.6 0 0 1 3.72 18.4v-7.66a2.4 2.4 0 0 1 .86-1.84l6.4-5.33A1.6 1.6 0 0 1 12 3.2Z" />
     </svg>
   );
 }
