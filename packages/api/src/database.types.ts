@@ -134,9 +134,9 @@ export interface Database {
     };
     Views: { [_ in never]: never };
     Functions: {
-      email_is_registered: {
+      email_account_status: {
         Args: { p_email: string };
-        Returns: boolean;
+        Returns: string;
       };
     };
     Enums: { [_ in never]: never };

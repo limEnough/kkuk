@@ -5,6 +5,7 @@ import { createSupabaseClient, useInitSession } from '@chamapp/api';
 import { ToastProvider } from '@chamapp/ui';
 import { OnboardingPage } from './pages/OnboardingPage';
 import { LoginPage } from './pages/LoginPage';
+import { SignupPage } from './pages/SignupPage';
 import { AuthCallbackPage } from './pages/AuthCallbackPage';
 import { MainPage } from './pages/MainPage';
 import { CalendarPage } from './pages/CalendarPage';
@@ -54,6 +55,8 @@ function AppContent() {
             </GuestRoute>
           }
         />
+        {/* 가입 중에는 OTP 검증으로 세션이 생기므로 GuestRoute로 감싸지 않음 */}
+        <Route path="/signup" element={<SignupPage />} />
         <Route path="/auth/callback" element={<AuthCallbackPage />} />
         <Route path="/main" element={<MainPage />} />
         <Route path="/calendar" element={<CalendarPage />} />

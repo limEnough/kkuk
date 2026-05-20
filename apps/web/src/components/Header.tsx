@@ -10,8 +10,9 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const isLoggedIn = !!user;
-  const isOnLogin = location.pathname === "/login";
-  const isMain = location.pathname === "/main";
+  const isLoginPage = location.pathname === "/login";
+  const isMainPage = location.pathname === "/main";
+  const isSignupPage = location.pathname === "/signup";
 
   const handleBack = () => {
     // location.key가 'default'면 이 앱에서의 첫 진입(링크/직접 접속 등)이라
@@ -27,7 +28,7 @@ export function Header() {
     <>
       <header className="sticky top-0 z-30 flex items-center justify-between h-14 px-2 bg-white border-b border-gray-100">
         <div>
-          {!(isMain && isLoggedIn) && (
+          {!(isMainPage && isLoggedIn) && (
             <button
               type="button"
               aria-label="뒤로가기"
@@ -40,7 +41,7 @@ export function Header() {
         </div>
 
         <div className="flex items-center gap-1">
-          {!isLoggedIn && !isOnLogin && (
+          {!isLoggedIn && !isLoginPage && (
             <button
               type="button"
               onClick={() => navigate("/login")}

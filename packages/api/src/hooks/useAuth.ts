@@ -67,6 +67,12 @@ export type AuthErrorCode =
   | 'rate_limit'
   | 'invalid_otp'
   | 'invalid_email'
+  | 'invalid_credentials'
+  | 'weak_password'
+  | 'account_google'
+  | 'account_exists'
+  | 'no_account'
+  | 'incomplete'
   | 'network'
   | 'unknown';
 
@@ -128,6 +134,30 @@ export function mapAuthError(error: unknown): AuthFlowError {
     );
   }
 
+  // 이메일/비밀번호 로그인 실패
+  if (
+    code === 'invalid_credentials' ||
+    msg.includes('invalid login credentials') ||
+    msg.includes('invalid email or password')
+  ) {
+    return new AuthFlowError(
+      'invalid_credentials',
+      '이메일 또는 비밀번호가 올바르지 않아요.',
+    );
+  }
+
+  // 비밀번호가 보안 요건 미달 (서버측 정책)
+  if (
+    code === 'weak_password' ||
+    msg.includes('password should be at least') ||
+    msg.includes('weak password')
+  ) {
+    return new AuthFlowError(
+      'weak_password',
+      '비밀번호가 보안 요건을 충족하지 않아요.\n더 복잡한 비밀번호로 다시 설정해주세요.',
+    );
+  }
+
   // 이메일 형식/주소 문제
   if (
     code === 'validation_failed' ||
@@ -155,7 +185,7 @@ export function mapAuthError(error: unknown): AuthFlowError {
 
   return new AuthFlowError(
     'unknown',
-    '로그인 링크 전송에 실패했어요.\n잠시 후 다시 시도해주세요.',
+    '요청을 처리하지 못했어요.\n잠시 후 다시 시도해주세요.',
   );
 }
 
@@ -180,50 +210,127 @@ export function useSignInWithGoogle() {
 }
 
 // ============================================================================
-// 로그인 — 이메일 매직링크 (비밀번호 없음)
+// 이메일 계정 상태 조회 (none|google|email_incomplete|email_complete)
 // ============================================================================
 
-export interface SignInWithEmailResult {
-  /**
-   * 이미 가입된 이메일인지 여부.
-   * RPC 조회에 실패하면 분기 안내를 생략하기 위해 null.
-   */
-  isExistingUser: boolean | null;
+export type EmailAccountStatus =
+  | 'none'
+  | 'google'
+  | 'email_incomplete'
+  | 'email_complete';
+
+async function fetchEmailStatus(
+  email: string,
+): Promise<EmailAccountStatus | null> {
+  const supabase = getSupabaseClient();
+  try {
+    const { data, error } = await supabase.rpc('email_account_status', {
+      p_email: email,
+    });
+    if (error || !data) return null;
+    return data as EmailAccountStatus;
+  } catch {
+    return null;
+  }
 }
 
-export function useSignInWithEmail() {
+/** 이메일 상태를 단독 조회 (화면에서 사전 분기용) */
+export function useEmailStatus() {
+  return useMutation<EmailAccountStatus | null, AuthFlowError, { email: string }>(
+    {
+      mutationFn: ({ email }) => fetchEmailStatus(email),
+    },
+  );
+}
+
+// ============================================================================
+// 회원가입 — 이메일 인증코드 발송
+//   google / email_complete 이면 차단, none / email_incomplete 만 발송
+// ============================================================================
+
+export function useRequestSignupCode() {
   return useMutation<
-    SignInWithEmailResult,
+    EmailAccountStatus | null,
     AuthFlowError,
-    { email: string; redirectTo?: string }
+    { email: string }
   >({
-    mutationFn: async ({ email, redirectTo }) => {
-      const supabase = getSupabaseClient();
-
-      // 1) 가입 여부 사전 확인 (best-effort — 실패해도 발송은 진행)
-      let isExistingUser: boolean | null = null;
-      try {
-        const { data: exists, error: rpcError } = await supabase.rpc(
-          'email_is_registered',
-          { p_email: email },
+    mutationFn: async ({ email }) => {
+      const status = await fetchEmailStatus(email);
+      if (status === 'google') {
+        throw new AuthFlowError(
+          'account_google',
+          '이미 Google로 가입된 이메일이에요.\n"Google로 계속하기"로 로그인해주세요.',
         );
-        if (!rpcError) isExistingUser = exists ?? null;
-      } catch {
-        // 가입 여부 확인 실패는 치명적이지 않으므로 무시
       }
-
-      // 2) 매직링크 발송 (신규/기존 모두 링크 전송)
+      if (status === 'email_complete') {
+        throw new AuthFlowError(
+          'account_exists',
+          '이미 가입된 이메일이에요.\n비밀번호로 로그인해주세요.',
+        );
+      }
+      // none | email_incomplete | null → 코드 발송 (신규 가입 / 가입 재개)
+      const supabase = getSupabaseClient();
       const { error } = await supabase.auth.signInWithOtp({
         email,
-        options: {
-          emailRedirectTo:
-            redirectTo ?? `${window.location.origin}/auth/callback`,
-          shouldCreateUser: true,
-        },
+        options: { shouldCreateUser: true },
       });
       if (error) throw mapAuthError(error);
+      return status;
+    },
+  });
+}
 
-      return { isExistingUser };
+// ============================================================================
+// 회원가입 — 비밀번호 설정 (코드 인증으로 로그인된 상태에서 호출)
+// ============================================================================
+
+export function useSetPassword() {
+  return useMutation<void, AuthFlowError, { password: string }>({
+    mutationFn: async ({ password }) => {
+      const supabase = getSupabaseClient();
+      const { error } = await supabase.auth.updateUser({ password });
+      if (error) throw mapAuthError(error);
+    },
+  });
+}
+
+// ============================================================================
+// 로그인 — 이메일 + 비밀번호
+// ============================================================================
+
+export function useSignInWithPassword() {
+  const qc = useQueryClient();
+  return useMutation<void, AuthFlowError, { email: string; password: string }>({
+    mutationFn: async ({ email, password }) => {
+      const status = await fetchEmailStatus(email);
+      if (status === 'none') {
+        throw new AuthFlowError(
+          'no_account',
+          '가입되지 않은 이메일이에요.\n"이메일로 가입하기"로 진행해주세요.',
+        );
+      }
+      if (status === 'google') {
+        throw new AuthFlowError(
+          'account_google',
+          'Google로 가입된 이메일이에요.\n"Google로 계속하기"로 로그인해주세요.',
+        );
+      }
+      if (status === 'email_incomplete') {
+        throw new AuthFlowError(
+          'incomplete',
+          '가입이 완료되지 않았어요.\n"이메일로 가입하기"에서 마저 진행해주세요.',
+        );
+      }
+      const supabase = getSupabaseClient();
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+      if (error) throw mapAuthError(error);
+    },
+    onSuccess: () => {
+      // 이전 사용자 캐시 폐기
+      qc.clear();
     },
   });
 }
