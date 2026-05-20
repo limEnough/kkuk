@@ -80,6 +80,7 @@ const preset: Partial<Config> = {
         'scale-in': 'scale-in 0.2s ease-out',
         'shake-soft': 'shake-soft 0.12s ease-in-out infinite',
         'hammer-tap': 'hammer-tap 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)',
+        'rainbow-shift': 'rainbow-shift 2.4s linear infinite',
         'firework': 'firework 0.9s ease-out forwards',
         'slide-up': 'slide-up 0.3s cubic-bezier(0.32, 0.72, 0, 1)',
         'slide-in-right': 'slide-in-right 0.3s cubic-bezier(0.32, 0.72, 0, 1)',
@@ -112,6 +113,11 @@ const preset: Partial<Config> = {
           '66%': { transform: 'rotate(-20deg)' }, // 2차 바운스 타격
           '82%': { transform: 'rotate(-10deg)' },
           '100%': { transform: 'rotate(30deg)' }, // 준비 자세 복귀
+        },
+        // 무지개 컬러가 천천히 순환 — 정적 그라데이션도 살아있는 느낌
+        'rainbow-shift': {
+          '0%': { filter: 'hue-rotate(0deg)' },
+          '100%': { filter: 'hue-rotate(360deg)' },
         },
         'firework': {
           '0%': { transform: 'scale(0) translate(0, 0)', opacity: '1' },

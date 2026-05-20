@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import {
   cancelHaptic,
   celebrationHaptic,
@@ -156,8 +156,8 @@ export function PressArea({
           touchAction: 'none',
         }}
       >
-        {/* 진행률 링 (SVG) */}
-        <ProgressRing progress={progress} />
+        {/* 진행률 링 (SVG) — 무지개 그라데이션 + 타격마다 stroke 바운스 */}
+        <ProgressRing progress={progress} hitKey={hammerKey} />
 
         {/* 이모지 (흔들림 + 흐려짐) */}
         <div
@@ -218,12 +218,36 @@ export function PressArea({
 }
 
 // ============================================================================
-// 진행률 링
+// 진행률 링 — 무지개 그라데이션 + hue-rotate + 타격 시 stroke 펄스 바운스
 // ============================================================================
-function ProgressRing({ progress }: { progress: number }) {
+function ProgressRing({
+  progress,
+  hitKey,
+}: {
+  progress: number;
+  hitKey: number;
+}) {
+  const arcRef = useRef<SVGCircleElement>(null);
   const radius = 124;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference * (1 - progress);
+
+  // 망치가 두드릴 때마다 무지개 border 만 squash & stretch
+  // (SVG 자체는 그대로 → hue-shift 와 dashoffset transition 의 연속성 유지)
+  useLayoutEffect(() => {
+    if (!arcRef.current || hitKey === 0) return;
+    arcRef.current.animate(
+      [
+        { strokeWidth: '6px', transform: 'scale(1)' },
+        { strokeWidth: '12px', transform: 'scale(1.06)', offset: 0.14 }, // 임팩트 — 두꺼워지며 바깥쪽으로 팽창
+        { strokeWidth: '3px', transform: 'scale(0.95)', offset: 0.34 }, // 반동 — 안쪽으로 움츠러듬
+        { strokeWidth: '8px', transform: 'scale(1.03)', offset: 0.56 },
+        { strokeWidth: '5px', transform: 'scale(0.99)', offset: 0.78 },
+        { strokeWidth: '6px', transform: 'scale(1)' },
+      ],
+      { duration: 450, easing: 'cubic-bezier(0.34, 1.56, 0.64, 1)' },
+    );
+  }, [hitKey]);
 
   return (
     <svg
@@ -231,7 +255,20 @@ function ProgressRing({ progress }: { progress: number }) {
       width="100%"
       height="100%"
       viewBox="0 0 256 256"
+      style={{
+        animation: 'rainbow-shift 2.4s linear infinite',
+      }}
     >
+      <defs>
+        <linearGradient id="rainbow-stroke" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#FF3B30" />
+          <stop offset="20%" stopColor="#FF9500" />
+          <stop offset="40%" stopColor="#FFD60A" />
+          <stop offset="60%" stopColor="#34C759" />
+          <stop offset="80%" stopColor="#007AFF" />
+          <stop offset="100%" stopColor="#AF52DE" />
+        </linearGradient>
+      </defs>
       <circle
         cx="128"
         cy="128"
@@ -242,16 +279,21 @@ function ProgressRing({ progress }: { progress: number }) {
         className="text-gray-200"
       />
       <circle
+        ref={arcRef}
         cx="128"
         cy="128"
         r={radius}
-        stroke="currentColor"
-        strokeWidth="4"
+        stroke="url(#rainbow-stroke)"
+        strokeWidth="6"
         fill="none"
         strokeLinecap="round"
         strokeDasharray={circumference}
         strokeDashoffset={offset}
-        className="text-blue-500 transition-[stroke-dashoffset] duration-100 ease-out"
+        className="transition-[stroke-dashoffset] duration-100 ease-out"
+        style={{
+          transformOrigin: '128px 128px',
+          transformBox: 'view-box',
+        }}
       />
     </svg>
   );
