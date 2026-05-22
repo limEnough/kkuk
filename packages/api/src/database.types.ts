@@ -21,6 +21,7 @@ export interface Database {
           id: string;
           nickname: string | null;
           selected_hammer_id: string | null;
+          password_set: boolean;
           created_at: string;
           updated_at: string;
         };
@@ -28,12 +29,14 @@ export interface Database {
           id: string;
           nickname?: string | null;
           selected_hammer_id?: string | null;
+          password_set?: boolean;
           created_at?: string;
           updated_at?: string;
         };
         Update: {
           nickname?: string | null;
           selected_hammer_id?: string | null;
+          password_set?: boolean;
           updated_at?: string;
         };
         Relationships: [];

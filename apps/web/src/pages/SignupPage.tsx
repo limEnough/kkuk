@@ -216,8 +216,7 @@ export function SignupPage() {
               required: "비밀번호를 입력해주세요",
               pattern: {
                 value: PASSWORD_RULE,
-                message:
-                  "영문/숫자/특수문자를 모두 포함해 6자 이상이어야 해요",
+                message: "영문/숫자/특수문자를 모두 포함해 6자 이상이어야 해요",
               },
             })}
             error={pwForm.formState.errors.password?.message}
@@ -270,11 +269,11 @@ export function SignupPage() {
         >
           <Input
             label="인증 코드"
-            type="text"
+            type="tel"
             inputMode="numeric"
-            autoComplete="one-time-code"
+            autoComplete="off"
             autoCorrect="off"
-            autoCapitalize="off"
+            autoCapitalize="none"
             spellCheck={false}
             data-1p-ignore="true"
             data-lpignore="true"

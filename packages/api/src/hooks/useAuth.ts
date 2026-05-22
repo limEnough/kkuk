@@ -288,8 +288,18 @@ export function useSetPassword() {
   return useMutation<void, AuthFlowError, { password: string }>({
     mutationFn: async ({ password }) => {
       const supabase = getSupabaseClient();
-      const { error } = await supabase.auth.updateUser({ password });
+      const { data, error } = await supabase.auth.updateUser({ password });
       if (error) throw mapAuthError(error);
+      // Supabase가 OTP 유저의 encrypted_password에 placeholder를 박기 때문에
+      // "진짜 비번을 설정했는가" 신호는 profiles.password_set 으로 따로 관리.
+      const userId = data.user?.id;
+      if (userId) {
+        const { error: profErr } = await supabase
+          .from('profiles')
+          .update({ password_set: true })
+          .eq('id', userId);
+        if (profErr) throw mapAuthError(profErr);
+      }
     },
   });
 }
